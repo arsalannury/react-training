@@ -16,8 +16,12 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
-import {toast,Toaster} from 'react-hot-toast';
-
+import { toast, Toaster } from "react-hot-toast";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
+import MoodIcon from '@mui/icons-material/Mood';
 
 const style = {
   width: "100%",
@@ -27,15 +31,16 @@ const style = {
 
 const Header = () => {
   let [display, setDisplay] = useState("none");
+  const [value, setValue] = useState(0);
   const classes = useHeaderStyle();
   const searchShow = () => {
     setDisplay("flex");
-    toast('What do you want ?')
+    toast("What do you want ?");
   };
   const searchHide = (event) => {
     if (event.target.tagName === "INPUT") return;
     setDisplay("none");
-    toast('Ok see you later')
+    toast("Ok see you later");
   };
   return (
     <>
@@ -65,7 +70,7 @@ const Header = () => {
           label="Search"
         />
       </Box>
-      <Toaster/>
+      <Toaster />
       <Box
         sx={{
           width: "250px",
@@ -76,22 +81,36 @@ const Header = () => {
           boxShadow: "0 0 10px #000",
         }}
       >
-       <List sx={style} component="nav" aria-label="mailbox folders">
-      <ListItem button>
-        <ListItemText primary="Home" />
-      </ListItem>
-      <Divider />
-      <ListItem button divider>
-        <ListItemText primary="Articles" />
-      </ListItem>
-      <ListItem button>
-        <ListItemText primary="About React" />
-      </ListItem>
-      <Divider light />
-      <ListItem button>
-        <ListItemText primary="About Me" />
-      </ListItem>
-    </List>
+        <List sx={style} component="nav" aria-label="mailbox folders">
+          <ListItem button>
+            <ListItemText primary="Home" />
+          </ListItem>
+          <Divider />
+          <ListItem button divider>
+            <ListItemText primary="Articles" />
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="About React" />
+          </ListItem>
+          <Divider light />
+          <ListItem button>
+            <ListItemText primary="About Me" />
+          </ListItem>
+        </List>
+
+        <Box >
+          <BottomNavigation
+            showLabels
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          >
+            <BottomNavigationAction label="Oh" icon={<SentimentDissatisfiedIcon />} />
+            <BottomNavigationAction label="Good" icon={<SentimentSatisfiedAltIcon />} />
+            <BottomNavigationAction label="Great" icon={<MoodIcon />} />
+          </BottomNavigation>
+        </Box>
       </Box>
       <Container className={classes.container_header}>
         <Box sx={{ flexGrow: 1 }}>
