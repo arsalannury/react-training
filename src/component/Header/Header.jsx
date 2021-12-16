@@ -96,6 +96,7 @@ const Header = () => {
           <ListItem button>
             <ListItemText primary="About Me" />
           </ListItem>
+          <Divider light />
         </List>
 
         <Box >
