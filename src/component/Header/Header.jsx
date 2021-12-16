@@ -16,6 +16,8 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import {toast,Toaster} from 'react-hot-toast';
+
 
 const style = {
   width: "100%",
@@ -28,10 +30,12 @@ const Header = () => {
   const classes = useHeaderStyle();
   const searchShow = () => {
     setDisplay("flex");
+    toast('What do you want ?')
   };
   const searchHide = (event) => {
     if (event.target.tagName === "INPUT") return;
     setDisplay("none");
+    toast('Ok see you later')
   };
   return (
     <>
@@ -61,6 +65,7 @@ const Header = () => {
           label="Search"
         />
       </Box>
+      <Toaster/>
       <Box
         sx={{
           width: "250px",
