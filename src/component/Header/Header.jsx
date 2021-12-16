@@ -19,9 +19,10 @@ import Divider from "@mui/material/Divider";
 import { toast, Toaster } from "react-hot-toast";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
-import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
-import MoodIcon from '@mui/icons-material/Mood';
+import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
+import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import MoodIcon from "@mui/icons-material/Mood";
+import BackspaceIcon from "@mui/icons-material/Backspace";
 
 const style = {
   width: "100%",
@@ -35,13 +36,14 @@ const Header = () => {
   const classes = useHeaderStyle();
   const searchShow = () => {
     setDisplay("flex");
-    toast("What do you want ?");
+    toast.success("What do you want ?");
   };
   const searchHide = (event) => {
     if (event.target.tagName === "INPUT") return;
     setDisplay("none");
-    toast("Ok see you later");
+    toast.success("Ok see you later");
   };
+
   return (
     <>
       <Box
@@ -99,7 +101,7 @@ const Header = () => {
           <Divider light />
         </List>
 
-        <Box >
+        <Box>
           <BottomNavigation
             showLabels
             value={value}
@@ -107,11 +109,28 @@ const Header = () => {
               setValue(newValue);
             }}
           >
-            <BottomNavigationAction label="Oh" icon={<SentimentDissatisfiedIcon />} />
-            <BottomNavigationAction label="Good" icon={<SentimentSatisfiedAltIcon />} />
+            <BottomNavigationAction
+              label="Oh"
+              icon={<SentimentDissatisfiedIcon />}
+            />
+            <BottomNavigationAction
+              label="Good"
+              icon={<SentimentSatisfiedAltIcon />}
+            />
             <BottomNavigationAction label="Great" icon={<MoodIcon />} />
           </BottomNavigation>
         </Box>
+        <Box sx={{
+          height:'200px',
+          display:'flex',
+          flexDirection:'column',
+          alignItems:'center',
+          justifyContent:'space-around'
+        }}>
+          <TextField variant="standard" label="Write Somthing To Me" />
+          <Button variant="contained">Send to me</Button>
+        </Box>
+        {/* <BackspaceIcon /> */}
       </Box>
       <Container className={classes.container_header}>
         <Box sx={{ flexGrow: 1 }}>
