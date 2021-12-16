@@ -12,6 +12,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import Tooltip from "@mui/material/Tooltip";
 import { useHeaderStyle } from "./HeaderStyle";
 import { TextField } from "@mui/material";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Divider from "@mui/material/Divider";
+
+const style = {
+  width: "100%",
+  maxWidth: 360,
+  bgcolor: "background.paper",
+};
 
 const Header = () => {
   let [display, setDisplay] = useState("none");
@@ -51,13 +61,33 @@ const Header = () => {
           label="Search"
         />
       </Box>
-    <Box sx={{
-      width:'18%',
-      height:'100%',
-      backgroundColor:'#ddd',
-    }}>
-     b
-    </Box>
+      <Box
+        sx={{
+          width: "250px",
+          height: "100%",
+          backgroundColor: "#fff",
+          position: "fixed",
+          zIndex: "10",
+          boxShadow: "0 0 10px #000",
+        }}
+      >
+       <List sx={style} component="nav" aria-label="mailbox folders">
+      <ListItem button>
+        <ListItemText primary="Home" />
+      </ListItem>
+      <Divider />
+      <ListItem button divider>
+        <ListItemText primary="Articles" />
+      </ListItem>
+      <ListItem button>
+        <ListItemText primary="About React" />
+      </ListItem>
+      <Divider light />
+      <ListItem button>
+        <ListItemText primary="About Me" />
+      </ListItem>
+    </List>
+      </Box>
       <Container className={classes.container_header}>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar className={classes.box_header} position="static">
