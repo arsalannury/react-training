@@ -25,6 +25,7 @@ export const useHeaderStyle = makeStyles({
     color:'#1976d2',
   },
   search_input:{
-    width : '200px'
+    width : '300px',
+    color:'#fff',
   }
 })

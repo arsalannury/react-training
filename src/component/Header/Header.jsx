@@ -14,15 +14,15 @@ import { useHeaderStyle } from "./HeaderStyle";
 import { TextField } from "@mui/material";
 
 const Header = () => {
-  let [display, setDisplay] = useState('none');
+  let [display, setDisplay] = useState("none");
   const classes = useHeaderStyle();
   const searchShow = () => {
-    setDisplay('flex');
-  }
+    setDisplay("flex");
+  };
   const searchHide = (event) => {
-    if(event.target.tagName === 'INPUT') return;
-    setDisplay('none');
-  }
+    if (event.target.tagName === "INPUT") return;
+    setDisplay("none");
+  };
   return (
     <>
       <Box
@@ -32,21 +32,32 @@ const Header = () => {
           top: "0",
           left: "0",
           zIndex: "1055",
-          display: {display},
-          flexDirection:'column',
-          alignItems:'center',
-          justifyContent:'center',
+          display: { display },
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
           width: "100%",
           height: "100%",
           overflowX: "hidden",
           overflowY: "auto",
           outline: "0",
           background: "rgba(0,0,0,0.70)",
-          transition:'all .5s ease',
+          transition: "all .5s ease",
         }}
       >
-        <TextField className={classes.search_input} variant="outlined" label="Search" />
+        <TextField
+          className={classes.search_input}
+          variant="outlined"
+          label="Search"
+        />
       </Box>
+    <Box sx={{
+      width:'18%',
+      height:'100%',
+      backgroundColor:'#ddd',
+    }}>
+     b
+    </Box>
       <Container className={classes.container_header}>
         <Box sx={{ flexGrow: 1 }}>
           <AppBar className={classes.box_header} position="static">
@@ -62,7 +73,10 @@ const Header = () => {
               </IconButton>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Tooltip title="Search">
-                  <SearchIcon onClick={searchShow} className={classes.search_icon_header} />
+                  <SearchIcon
+                    onClick={searchShow}
+                    className={classes.search_icon_header}
+                  />
                 </Tooltip>
               </Typography>
               <Typography className={classes.p_title}>React</Typography>

@@ -12,4 +12,5 @@
 #Project{
     font-family: font;
     height: 100%;
+    position: relative;
 }
