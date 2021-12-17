@@ -31,6 +31,7 @@ const style = {
 };
 
 const Header = () => {
+  // states
   let [display, setDisplay] = useState("none");
   const [value, setValue] = useState(0);
   const [send, toSend] = useState("true");
@@ -38,21 +39,21 @@ const Header = () => {
     { width: "0", display: "none" },
   ]);
   
-
+  // makeStyles MaterialUi
   const classes = useHeaderStyle();
   const searchShow = () => {
     setDisplay("flex");
     toast.success("What do you want ?");
   };
 
-
+  // HIDDEN search backdrop
   const searchHide = (event) => {
     if (event.target.tagName === "INPUT") return;
     setDisplay("none");
     toast.success("Ok see you later");
   };
 
-
+  // send to me BUTTON handler
   const sendToMe = (event) => {
     if (send === "true") {
       toast.error("write more please");
@@ -62,14 +63,14 @@ const Header = () => {
     toast.success("Thank you friend");
   };
 
-
+  // checkvlength of value SEND TO ME input 
   const onInputChange = (event) => {
     if (event.target.value.length > 3) {
       toSend("false");
     }
   };
 
-
+  //  change state to show navbar
   const newNavbarState = () => {
     const newNavbar = navbar.map((nNav) => {
       nNav.display = "unset";
