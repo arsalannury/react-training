@@ -22,7 +22,7 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import MoodIcon from "@mui/icons-material/Mood";
-import BackspaceIcon from "@mui/icons-material/Backspace";
+import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
 
 const style = {
   width: "100%",
@@ -31,8 +31,10 @@ const style = {
 };
 
 const Header = () => {
+
   let [display, setDisplay] = useState("none");
   const [value, setValue] = useState(0);
+  const [send,toSend] = useState('true');
   const classes = useHeaderStyle();
   const searchShow = () => {
     setDisplay("flex");
@@ -43,7 +45,16 @@ const Header = () => {
     setDisplay("none");
     toast.success("Ok see you later");
   };
-
+  const sendToMe = (event) => {
+    if(send === 'true') return ;
+    event.target.parentElement.style.display = 'none';
+    toast.success('Thank you friend');
+  }
+  const onInputChange = (event) => {
+   if(event.target.value.length > 3){
+    toSend('false')
+   }
+  }
   return (
     <>
       <Box
@@ -120,17 +131,26 @@ const Header = () => {
             <BottomNavigationAction label="Great" icon={<MoodIcon />} />
           </BottomNavigation>
         </Box>
-        <Box sx={{
-          height:'200px',
-          display:'flex',
-          flexDirection:'column',
-          alignItems:'center',
-          justifyContent:'space-around'
-        }}>
-          <TextField variant="standard" label="Write Somthing To Me" />
-          <Button variant="contained">Send to me</Button>
+        <Box
+          sx={{
+            height: "200px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-around",
+          }}
+        >
+         <TextField onInput={onInputChange} variant="standard" label="Write Somthing To Me"/>
+          <Button onClick={sendToMe} variant="contained">Send to me</Button>
         </Box>
-        {/* <BackspaceIcon /> */}
+        <Box sx={{
+          display:'flex',
+          justifyContent:'center',
+          alignItems:'center',
+          cursor:'pointer'
+        }}>
+          <CancelPresentationIcon />
+        </Box>
       </Box>
       <Container className={classes.container_header}>
         <Box sx={{ flexGrow: 1 }}>
