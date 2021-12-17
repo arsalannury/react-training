@@ -46,7 +46,10 @@ const Header = () => {
     toast.success("Ok see you later");
   };
   const sendToMe = (event) => {
-    if(send === 'true') return ;
+    if(send === 'true'){
+      toast.error('write more please')
+      return;
+    }
     event.target.parentElement.style.display = 'none';
     toast.success('Thank you friend');
   }
