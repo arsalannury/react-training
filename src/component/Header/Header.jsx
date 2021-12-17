@@ -79,7 +79,16 @@ const Header = () => {
     });
     changeNavbar(newNavbar);
   };
-
+  
+  // change state to hide navabr
+  const newHideNavbarState = () => {
+    const newNavbarHide = navbar.map(nNav => {
+      nNav.display = 'none';
+      nNav.width = '0';
+      return nNav;
+    })
+    changeNavbar(newNavbarHide);
+  }
 
   return (
     <>
@@ -185,7 +194,7 @@ const Header = () => {
             cursor: "pointer",
           }}
         >
-          <CancelPresentationIcon />
+          <CancelPresentationIcon onClick={newHideNavbarState} />
         </Box>
       </Box>
       <Container className={classes.container_header}>
