@@ -31,33 +31,55 @@ const style = {
 };
 
 const Header = () => {
-
   let [display, setDisplay] = useState("none");
   const [value, setValue] = useState(0);
-  const [send,toSend] = useState('true');
+  const [send, toSend] = useState("true");
+  let [navbar, changeNavbar] = useState([
+    { width: "0", display: "none" },
+  ]);
+  
+
   const classes = useHeaderStyle();
   const searchShow = () => {
     setDisplay("flex");
     toast.success("What do you want ?");
   };
+
+
   const searchHide = (event) => {
     if (event.target.tagName === "INPUT") return;
     setDisplay("none");
     toast.success("Ok see you later");
   };
+
+
   const sendToMe = (event) => {
-    if(send === 'true'){
-      toast.error('write more please')
+    if (send === "true") {
+      toast.error("write more please");
       return;
     }
-    event.target.parentElement.style.display = 'none';
-    toast.success('Thank you friend');
-  }
+    event.target.parentElement.style.display = "none";
+    toast.success("Thank you friend");
+  };
+
+
   const onInputChange = (event) => {
-   if(event.target.value.length > 3){
-    toSend('false')
-   }
-  }
+    if (event.target.value.length > 3) {
+      toSend("false");
+    }
+  };
+
+
+  const newNavbarState = () => {
+    const newNavbar = navbar.map((nNav) => {
+      nNav.display = "unset";
+      nNav.width = "250px";
+      return nNav;
+    });
+    changeNavbar(newNavbar);
+  };
+
+
   return (
     <>
       <Box
@@ -89,8 +111,9 @@ const Header = () => {
       <Toaster />
       <Box
         sx={{
-          width: "250px",
+          width: navbar[0].width,
           height: "100%",
+          display: navbar[0].display,
           backgroundColor: "#fff",
           position: "fixed",
           zIndex: "10",
@@ -143,15 +166,23 @@ const Header = () => {
             justifyContent: "space-around",
           }}
         >
-         <TextField onInput={onInputChange} variant="standard" label="Write Somthing To Me"/>
-          <Button onClick={sendToMe} variant="contained">Send to me</Button>
+          <TextField
+            onInput={onInputChange}
+            variant="standard"
+            label="Write Somthing To Me"
+          />
+          <Button onClick={sendToMe} variant="contained">
+            Send to me
+          </Button>
         </Box>
-        <Box sx={{
-          display:'flex',
-          justifyContent:'center',
-          alignItems:'center',
-          cursor:'pointer'
-        }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+        >
           <CancelPresentationIcon />
         </Box>
       </Box>
@@ -165,6 +196,7 @@ const Header = () => {
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
+                onClick={newNavbarState}
               >
                 <MenuIcon className={classes.navbar_icon_header} />
               </IconButton>
