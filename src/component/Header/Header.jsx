@@ -119,6 +119,7 @@ const Header = () => {
           position: "fixed",
           zIndex: "10",
           boxShadow: "0 0 10px #000",
+          transition: 'all .6s ease'
         }}
       >
         <List sx={style} component="nav" aria-label="mailbox folders">
