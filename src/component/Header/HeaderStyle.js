@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { makeStyles } from '@mui/styles';
-import { HoverMode } from 'react-tsparticles';
+
 
 export const useHeaderStyle = makeStyles({
   container_header : {
