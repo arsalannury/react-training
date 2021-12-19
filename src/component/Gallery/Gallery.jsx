@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 class Gallery extends Component {
   render() {
-
+   const {id} = this.props;
     return (
       <>
         <Box sx={{ flexGrow: 1 , marginTop : '60px'}}>
@@ -25,7 +25,7 @@ class Gallery extends Component {
           >
             {Array.from(Array(6)).map((_, index) => (
               <Grid item xs={2} sm={4} md={4} key={index}>
-                <Item>xs=2</Item>
+                <Item>{this.props.title}</Item>
               </Grid>
             ))}
           </Grid>

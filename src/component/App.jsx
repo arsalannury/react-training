@@ -2,7 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Header from './Header/Header';
-import Gallery from './Gallery/Gallery';
+// import Gallery from './Gallery/Gallery';
+import GalleryAll from './Gallery/GalleryAll';
 import '../../src/Index.css';
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
   return (
     <>
     <Header />
-    <Gallery />
+    {/* <Gallery /> */}
+    <GalleryAll />
     </>
   );
 }
