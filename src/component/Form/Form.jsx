@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { useForm, Controller } from "react-hook-form";
 import { TextField } from "@mui/material";
@@ -45,7 +44,7 @@ const Form = () => {
   return (
     <>
      
-      <form action="" onSubmit={handleSubmit(onSubmit)}>
+      <form action="" >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#0099ff"
@@ -94,7 +93,7 @@ const Form = () => {
               />
             )}
           />
-          <Button variant="contained">Send</Button>
+          <Button onSubmit={handleSubmit(onSubmit)} variant="contained">Send</Button>
         </Wrapper>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path

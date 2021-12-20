@@ -5,6 +5,6 @@ export const useStyles = makeStyles({
      position : 'absolute',
      top : '0px',
      left : '10px',
-     fontSize : '1.5em',
+     fontSize : '1.5em !important',
  }
 })
