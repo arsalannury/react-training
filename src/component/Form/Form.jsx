@@ -15,6 +15,13 @@ const schema = yup
   .required();
 
 
+ const Wrapper = styled.div`
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+  justify-content : space-around;
+ `
+
 
 const Form = () => {
 
@@ -33,10 +40,11 @@ const Form = () => {
 
   const { isValid, errors } = formState;
   const onSubmit = (data) => console.log(data);
-  
+
   return (
     <>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
+        <Wrapper>
         <Controller
           name="firstName"
           control={control}
@@ -77,6 +85,7 @@ const Form = () => {
           )}
         />
         <Button variant="contained">Send</Button>
+        </Wrapper>
       </form>
     </>
   );
