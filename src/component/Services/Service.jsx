@@ -7,46 +7,54 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
 
 class Service extends Component {
   render() {
     return (
       <>
-        <Card sx={{ minWidth: 275 }}>
+        <Card
+          sx={{
+            minWidth: 275,
+            maxWidth: 300,
+            boxShadow: "0 0 3px #111",
+            margin: "50px",
+          }}
+        >
           <CardContent>
             <Typography
               sx={{ fontSize: 14 }}
               color="text.secondary"
               gutterBottom
             >
-              Word of the Day
+             {this.props.number}
             </Typography>
             <Typography variant="h5" component="div">
-              be{bull}nev{bull}o{bull}lent
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
+              {this.props.title}
             </Typography>
             <Typography variant="body2">
-              well meaning and kindly.
+              {this.props.text}
               <br />
               {'"a benevolent smile"'}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Learn More</Button>
+            <Button onClick={this.handleInc} size="small">+</Button>
+            <Button size="small">{this.props.count}</Button>
+            <Button onClick={this.handleDec} size="small">-</Button>
+            <Button onClick={this.handleDel} size="small">delete</Button>
           </CardActions>
         </Card>
       </>
     );
+  }
+  handleInc = () => {
+   this.props.increment(this.props.id)
+  }
+  handleDec = () => {
+    this.props.decrement(this.props.id)
+  }
+  handleDel = () => {
+    this.props.delete(this.props.id)
   }
 }
 export default Service;

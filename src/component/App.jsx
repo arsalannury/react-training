@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 import Header from './Header/Header';
 import Form from './Form/Form';
 import GalleryAll from './Gallery/GalleryAll';
-import Service from './Services/Service';
+import Services from './Services/Services';
 import '../../src/Index.css';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     <Header />
     <GalleryAll />
     <Form />
-    <Service />
+    <Services />
     </>
   );
 }
