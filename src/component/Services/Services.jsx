@@ -35,7 +35,15 @@ class Services extends Component {
         text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque vel dignissimos sunt tenetur cum aut quidem iusto excepturi nemo consequatur. Consequuntur ipsum perferendis, eius debitis recusandae obcaecati sint quibusdam laudantium!",
       },
     ],
+    cardDisplay: "unset",
   };
+
+  emptyCard = (event) => { 
+    if (event.currentTarget.children.length <= 1) {
+      this.setState({ cardDisplay: "none" });
+    }
+  };
+
   render() {
     return (
       <>
@@ -49,12 +57,14 @@ class Services extends Component {
             marginTop: "50px",
             position: "relative",
           }}
+          onMouseMove={this.emptyCard}
         >
           <Button
             sx={{
               alignSelf: "center",
               position: "absolute",
-              top: "0"
+              top: "0",
+              display: this.state.cardDisplay,
             }}
             variant="outlined"
             onClick={this.handleReset}
