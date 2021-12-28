@@ -1,7 +1,10 @@
+import {useWaveStyle} from './WavesStyle';
+
 const WaveBottom = () => {
+  const classes = useWaveStyle();
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg className={classes.wawe_bottom} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#5000ca"
           fillOpacity="0.5"
