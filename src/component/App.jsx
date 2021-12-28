@@ -7,6 +7,7 @@ import '../../src/Index.css';
 import Header from './Header/Header';
 import SliderBox from './Slider/Slider';
 import RootShoes from "./Introduce/Root";
+import Stepperr from "./Stepper/Stepper";
 
 function App() {
   AOS.init();
@@ -15,6 +16,7 @@ function App() {
     <Header />
     <SliderBox />
     <RootShoes />
+    <Stepperr />
     </>
   );
 }
