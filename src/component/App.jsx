@@ -9,7 +9,7 @@ import SliderBox from "./Slider/Slider";
 import RootShoes from "./Introduce/Root";
 import Stepperr from "./Stepper/Stepper";
 import StepperTitle from "./Stepper/StepperTitle";
-import GetProductSale from "./SaleSlider/GetProductSale";
+import ProviderSale from "./SaleSlider/Provider";
 
 function App() {
   AOS.init();
@@ -20,7 +20,8 @@ function App() {
       <RootShoes />
       <StepperTitle />
       <Stepperr />
-      <GetProductSale />
+
+      <ProviderSale />
     </>
   );
 }

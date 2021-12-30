@@ -5,6 +5,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import {Box} from '@mui/material';
 import Countdown from 'react-countdown';
+import styled from "styled-components";
+
 
 class SaleSlider extends Component {
   render() {
@@ -31,9 +33,9 @@ class SaleSlider extends Component {
               alignItems : 'center',
               justifyContent : 'space-evenly',
           }}>
-              <Typography>{this.props.price}</Typography>
+              <Typography sx={{color : '#54E346'}}>{this.props.price}</Typography>
               <Typography><Countdown date={Date.now() + this.props.timer} /></Typography>
-              <del>{this.props.salePrice}</del>
+              <Del>{this.props.salePrice}</Del>
           </Box>
         </Card>
       </>
@@ -42,3 +44,7 @@ class SaleSlider extends Component {
 }
 
 export default SaleSlider;
+
+const Del = styled.del`
+color : #FA1E0E;
+`
