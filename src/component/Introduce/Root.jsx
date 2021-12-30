@@ -4,7 +4,6 @@ import { useState } from "react";
 import ShoesContext from '../../context/ContextShoes';
 
 const RootShoes =()=> {
-    const [deal,setDeal] = useState('active');
     const [cards, setCard] = useState([
         {
           id: "1",

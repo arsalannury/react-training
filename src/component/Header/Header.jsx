@@ -3,8 +3,6 @@ import { Box } from "@mui/material";
 import styled from "styled-components";
 import { Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button } from "@mui/material";
-import Brightness3Icon from "@mui/icons-material/Brightness3";
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 
