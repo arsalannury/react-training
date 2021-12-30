@@ -53,6 +53,7 @@ function Stepperr() {
   const handleReset = () => {
     setActiveStep(0);
   };
+
   return (
     <Box sx={{ margin: "100px 20px 100px 20px" }}>
       <Stepper activeStep={activeStep}>
@@ -79,7 +80,7 @@ function Stepperr() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+          <Typography sx={{ mt: 2, mb: 1 }}>{activeStep + 1}</Typography>
           <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
             <Button
               color="inherit"
