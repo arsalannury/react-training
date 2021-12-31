@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 import "../../src/Index.css";
 import Header from './Header/Header';
 import AnimationType from "./AnimeType/AnimationType";
+import Products from './SaleProductSlider/Products';
+// import "swiper/css/bundle";
 
 function App() {
   AOS.init();
@@ -11,6 +13,7 @@ function App() {
     <>
     <Header />
     <AnimationType />
+    <Products />
     </>
   );
 }

@@ -28,7 +28,7 @@ const Paragraph = styled.p`
 `
 const ImgAnime = styled.img`
  width : 50%;
- height : 410px;
+ height : 350px;
 `
 const Container = styled.div`
 display: flex;

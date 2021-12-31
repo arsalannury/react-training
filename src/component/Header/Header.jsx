@@ -59,6 +59,7 @@ const Container = styled.header`
   position : sticky;
   top : 0;
   background : #fff;
+  z-index : 10;
 `;
 
 const Head = styled.div`
