@@ -25,6 +25,7 @@
     "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
     "react-type-animation": "^1.1.2",
+    "react-typist": "^2.0.5",
     "semantic-ui-css": "^2.4.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.3",
