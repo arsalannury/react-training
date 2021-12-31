@@ -58,6 +58,7 @@ const Container = styled.header`
   box-shadow: 0 0 25px #eee;
   position : sticky;
   top : 0;
+  background : #fff;
 `;
 
 const Head = styled.div`
