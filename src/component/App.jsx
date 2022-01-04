@@ -5,7 +5,7 @@ import "../../src/Index.css";
 import Header from './Header/Header';
 import AnimationType from "./AnimeType/AnimationType";
 import Products from './SaleProductSlider/Products';
-// import "swiper/css/bundle";
+import RootNew from './New/RootNew';
 
 function App() {
   AOS.init();
@@ -14,6 +14,7 @@ function App() {
     <Header />
     <AnimationType />
     <Products />
+    <RootNew />
     </>
   );
 }
