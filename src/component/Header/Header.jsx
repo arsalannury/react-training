@@ -6,13 +6,16 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 class Header extends Component {
   state = {
     open: false,
+    searched: "",
   };
-  handleClose = () => {
+  handleClose = (e) => {
+    if(e.target.tagName === 'INPUT') return ;
     this.setState({ open: false });
   };
   handleToggle = () => {
     this.setState({ open: true });
   };
+  
   render() {
     return (
       <>
@@ -28,7 +31,7 @@ class Header extends Component {
             </NavMenu>
 
             <Wrapper>
-              <SearchOutlinedIcon sx={{cursor: 'pointer'}} />
+              <SearchOutlinedIcon onClick={this.handleToggle} sx={{cursor: 'pointer'}} />
               <SignIn>Sign In</SignIn>
               <SignUp>Sign Up</SignUp>
             </Wrapper>
@@ -40,7 +43,7 @@ class Header extends Component {
           open={this.state.open}
           onClick={this.handleClose}
         >
-          <SearchInput type="text" />
+          <SearchInput placeholder="Search ..." type="text" />
         </Backdrop>
       </>
     );
@@ -87,7 +90,12 @@ const Wrapper = styled.div`
   width: 350px;
 `;
 const SearchInput = styled.input`
-  //
+  padding : 10px;
+  outline : none;
+  border-radius : 5px;
+  border : none;
+  width : 250px;
+  color : #0077b6;
 `;
 const SignIn = styled.button`
   border: 1px solid blue;
