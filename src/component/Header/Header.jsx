@@ -57,7 +57,7 @@ const Container = styled.header`
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  height: 140px;
+  height: 90px;
   box-shadow: 0 0 25px #eee;
   position : sticky;
   top : 0;

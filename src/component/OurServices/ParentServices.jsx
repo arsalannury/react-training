@@ -29,9 +29,7 @@ export default ParentServices;
 
 const Box = styled.div`
 display : grid;
-height : 600px;
 grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
-grid-template-rows: repeat(6,270px);
 grid-auto-rows : 270px;
 gap : 60px;
 `

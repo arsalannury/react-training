@@ -8,6 +8,7 @@ import Products from "./SaleProductSlider/Products";
 import RootNew from "./New/RootNew";
 import GetData from './selectProduct/GetData';
 import ServiceRoot from './OurServices/ServicesRoot';
+import Footer from './Footer/Footer';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <GetData />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </>
   );
