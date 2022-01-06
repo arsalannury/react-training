@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import SelectContext from '../../Context/SelectContext';
+import {useContext} from 'react';
 import SelectProduct from "./SelectProduct";
-import CircularProgress from "@mui/material/CircularProgress";
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 function GetData() {
+  const GetDataContext = useContext(SelectContext);
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -20,15 +22,20 @@ function GetData() {
     };
     fetchData();
   }, []);
+  const handleDelete = (id) => {
+    products.filter(item => item.id !== id)
+  }
   return (
     <>
       <Box>
         {products.map((item, index) => (
           <SelectProduct
             key={index}
-            title={item.title}
+            id={item.id}
+            title={item.category}
             price={item.price}
             image={item.image}
+            deleted={handleDelete}
           />
         ))}
       </Box>

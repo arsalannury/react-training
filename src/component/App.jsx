@@ -6,7 +6,7 @@ import Header from "./Header/Header";
 import AnimationType from "./AnimeType/AnimationType";
 import Products from "./SaleProductSlider/Products";
 import RootNew from "./New/RootNew";
-import GetData from './selectProduct/GetData';
+import GetDataRoot from './selectProduct/GetDataRoot';
 import ServiceRoot from './OurServices/ServicesRoot';
 import Footer from './Footer/Footer';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -25,7 +25,7 @@ function App() {
             <ServiceRoot />
           </Route>
           <Route path="/selectProduct">
-            <GetData />
+            <GetDataRoot />
           </Route>
         </Switch>
         <Footer />
