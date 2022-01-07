@@ -2,11 +2,12 @@ import { Component } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import styled from "styled-components";
+import {Link} from 'react-router-dom';
 
 class Register extends Component {
   constructor() {
     super();
-    this.state = { number: "" };
+    this.state = { number: "" , disableds : "true" };
   }
   sendSms = (e) => {
     if (this.state.number.length <= 10) return;
@@ -26,7 +27,11 @@ class Register extends Component {
   handleChange = (e) => {
     this.setState({ number: e.target.value });
   };
-
+  handleDis(){
+    if (this.state.number.length <= 10){
+        this.setState({disableds : "false"})
+    }
+  }
   render() {
     return (
       <>
@@ -39,8 +44,8 @@ class Register extends Component {
                 label="Phone Number"
                 variant="outlined"
               />
-              <Btn onClick={this.sendSms} variant="contained">
-                Send
+              <Btn disabled={this.state.disableds} onClick={this.sendSms} variant="contained">
+                <Link to="/Verify">Send</Link>
               </Btn>
             </Box>
           </Wrapper>
@@ -81,4 +86,8 @@ const Input = styled(TextField)`
 
 const Btn = styled(Button)`
   padding: 13px 36px;
+  a{
+      text-decoration : none;
+      color : #fff;
+  }
 `;

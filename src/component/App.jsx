@@ -10,6 +10,7 @@ import GetData from './selectProduct/GetData';
 import ServiceRoot from './OurServices/ServicesRoot';
 import Footer from './Footer/Footer';
 import Register from './SignUpIn/Register';
+import Verify from './SignUpIn/Verify';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/Register">
             <Register />
+          </Route>
+          <Route path="/Verify">
+            <Verify />
           </Route>
         </Switch>
         <Footer />
