@@ -6,9 +6,10 @@ import Header from "./Header/Header";
 import AnimationType from "./AnimeType/AnimationType";
 import Products from "./SaleProductSlider/Products";
 import RootNew from "./New/RootNew";
-import GetDataRoot from './selectProduct/GetDataRoot';
+import GetData from './selectProduct/GetData';
 import ServiceRoot from './OurServices/ServicesRoot';
 import Footer from './Footer/Footer';
+import Register from './SignUpIn/Register';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -25,7 +26,10 @@ function App() {
             <ServiceRoot />
           </Route>
           <Route path="/selectProduct">
-            <GetDataRoot />
+            <GetData />
+          </Route>
+          <Route path="/Register">
+            <Register />
           </Route>
         </Switch>
         <Footer />

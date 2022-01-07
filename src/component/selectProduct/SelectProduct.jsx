@@ -1,21 +1,7 @@
 // import { useState, useEffect } from "react";
 import styled from "styled-components";
-import {Button,ButtonGroup} from '@mui/material';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import SelectContext from '../../Context/SelectContext';
-import {useContext} from 'react';
 
-function SelectProduct({ image, title, price,id,deleted}) {
-  const contextUse = useContext(SelectContext);
-  const handleIncrement = () =>{
-   contextUse.increment(id)
-  }
-  const handleDecrement = () => {
-    contextUse.decrement(id)
-  }
-  const handleDelete = () =>{
-   deleted(id)
-  }
+function SelectProduct({ image, title, price,id}) {
   return (
     <>
       <Box>
@@ -23,13 +9,7 @@ function SelectProduct({ image, title, price,id,deleted}) {
         <TextBox>
           <Title>{title}</Title>
           <Price>{price} $</Price>
-          {/* <Count>{contextUse.countState}</Count> */}
         </TextBox>
-        <Actions>
-          <Button onClick={handleIncrement} variant="outlined">+</Button>
-          <Button onClick={handleDelete} variant="outlined"><DeleteOutlineOutlinedIcon/></Button>
-          <Button onClick={handleDecrement} variant="outlined">-</Button>
-        </Actions>
       </Box>
     </>
   );
@@ -53,6 +33,7 @@ const TextBox = styled.div`
 const ImgBox = styled.img`
   width: 20%;
   margin: 10px;
+  cursor : pointer;
 `;
 const Title = styled.p`
   margin: 10px;
@@ -60,9 +41,6 @@ const Title = styled.p`
 const Price = styled.p`
   margin: 10px;
 `;
- const Actions = styled(ButtonGroup)`
+
  
- `
- const Count = styled.p`
  
- `

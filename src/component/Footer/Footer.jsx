@@ -33,7 +33,7 @@ const FooterMain = styled.div`
  justify-content : space-evenly;
  margin-top : 50px;
  padding : 20px 20px 0 20px;
- box-shadow : 0 0 15px #eee;
+ box-shadow : 0 0 25px #eee;
 `
 const CopyRight = styled.p`
  font-size : 14px;

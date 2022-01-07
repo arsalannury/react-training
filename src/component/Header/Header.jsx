@@ -2,6 +2,7 @@ import { Component } from "react";
 import styled from "styled-components";
 import Backdrop from "@mui/material/Backdrop";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import {Link} from 'react-router-dom';
 
 class Header extends Component {
   state = {
@@ -32,8 +33,8 @@ class Header extends Component {
 
             <Wrapper>
               <SearchOutlinedIcon onClick={this.handleToggle} sx={{cursor: 'pointer'}} />
-              <SignIn>Sign In</SignIn>
-              <SignUp>Sign Up</SignUp>
+              <SignIn><Link to="/Register">Sign In</Link></SignIn>
+              <SignUp><Link to="/Register">Sign Up</Link></SignUp>
             </Wrapper>
           </Head>
         </Container>
@@ -108,18 +109,12 @@ const SignIn = styled.button`
     background-color: #0077b6;
     color: #fff;
   }
-`;
-const SignUp = styled.button`
-  border: 1px solid blue;
-  padding: 4px 17px;
-  border-radius: 3px;
-  background: #fff;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: #0077b6;
-    color: #fff;
+  a{
+    text-decoration : none;
   }
+`;
+const SignUp = styled(SignIn)`
+ 
 `;
 const LiNav = styled.li`
   list-style-type: none;
