@@ -2,13 +2,14 @@ import { Component } from "react";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Register extends Component {
   constructor() {
     super();
-    this.state = { number: "" , disableds : "true" };
+    this.state = { number: "" };
   }
+  disableState = true;
   sendSms = (e) => {
     if (this.state.number.length <= 10) return;
     fetch("https://api.bimebama.com/user/send_sms", {
@@ -22,16 +23,18 @@ class Register extends Component {
       .catch((error) => {
         throw new Error("Enter Your Number Correctly");
       });
-    e.target.previousElementSibling.children[1].children[0].value = "";
+      localStorage.setItem('smsSend',this.state.number)
+    // e.target.previousElementSibling.children[1].children[0].value = "";
   };
   handleChange = (e) => {
     this.setState({ number: e.target.value });
   };
-  handleDis(){
-    if (this.state.number.length <= 10){
-        this.setState({disableds : "false"})
-    }
+  componentDidUpdate() {
+    this.state.number.length > 9
+      ? (this.disableState = false)
+      : (this.disableState = true);
   }
+  
   render() {
     return (
       <>
@@ -44,7 +47,11 @@ class Register extends Component {
                 label="Phone Number"
                 variant="outlined"
               />
-              <Btn disabled={this.state.disableds} onClick={this.sendSms} variant="contained">
+              <Btn
+                disabled={this.disableState}
+                onClick={this.sendSms}
+                variant="contained"
+              >
                 <Link to="/Verify">Send</Link>
               </Btn>
             </Box>
@@ -86,8 +93,8 @@ const Input = styled(TextField)`
 
 const Btn = styled(Button)`
   padding: 13px 36px;
-  a{
-      text-decoration : none;
-      color : #fff;
+  a {
+    text-decoration: none;
+    color: #fff;
   }
 `;
