@@ -1,57 +1,62 @@
-import styled from 'styled-components';
-import {useState , useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import styled from "styled-components";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
-import axios from 'axios';
-import { useContext } from 'react';
-import AutorizationWeb from '../../Context/Autorization';
-
+import axios from "axios";
+import { useContext } from "react";
+import AutorizationWeb from "../../Context/Autorization";
 
 const Verify = () => {
-    const verifyCode = useContext(AutorizationWeb);
-    const [pass,createPass] = useState('');
-    const config = {
-       headers : {
-        Authorization : `Token `
-       }
-    }
-    const postDataLogin = () => {
-        axios.post('https://api.bimebama.com/user/login/',{
-            username : verifyCode.userName,
-            password : pass,
-        },{config}).then(res => {
-            console.log(res)
-        })
-    }
-    const setPass = (e) => {
-       createPass(e.target.value);
-    }
-    return (
-       <>
-       <Container>
-          <Wrapper>
-            <Title>Enter Verify Code</Title>
-            <Box>
-              <Input
-              onChange={setPass}
-                label="Code"
-                variant="outlined"
-              />
-              <Btn
-              onClick={postDataLogin}
-                variant="contained"
-              >
-                Login
-              </Btn>
-            </Box>
-          </Wrapper>
-        </Container>
-       </>
-    )
-}
+  const verifyCode = useContext(AutorizationWeb);
+  const [pass, createPass] = useState("");
+  const [login, setLogin] = useState(true);
+  const config = {
+    headers: {
+      Authorization: `Token `,
+    },
+  };
+  const postDataLogin = () => {
+    axios
+      .post(
+        "https://api.bimebama.com/user/login/",
+        {
+          username: verifyCode.autoState,
+          password: pass,
+        },
+        { config }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const setPass = (e) => {
+    createPass(e.target.value);
+  };
+  useEffect(() => {
+    pass.length >= 4 ? setLogin(false) : setLogin(true);
+  });
+  return (
+    <>
+      <Container>
+        <Wrapper>
+          <Title>Enter Verify Code</Title>
+          <Box>
+            <Input onChange={setPass} label="Code" variant="outlined" />
+            <Btn onClick={postDataLogin} disabled={login} variant="contained">
+              Login
+            </Btn>
+          </Box>
+        </Wrapper>
+      </Container>
+    </>
+  );
+};
 
-export default Verify
+export default Verify;
 
 const Container = styled.div`
   display: flex;

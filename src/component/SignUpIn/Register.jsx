@@ -3,10 +3,13 @@ import { TextField } from "@mui/material";
 import { Button } from "@mui/material";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import AutorizationWeb from '../../Context/Autorization';
+
 
 class Register extends Component {
-  constructor() {
-    super();
+  static contextType = AutorizationWeb;
+  constructor(props) {
+    super(props);
     this.state = { number: "" };
   }
   disableState = true;
@@ -24,17 +27,16 @@ class Register extends Component {
         throw new Error("Enter Your Number Correctly");
       });
       localStorage.setItem('smsSend',this.state.number)
-    // e.target.previousElementSibling.children[1].children[0].value = "";
   };
   handleChange = (e) => {
     this.setState({ number: e.target.value });
+   this.context.setAutoState(e.target.value)
   };
   componentDidUpdate() {
     this.state.number.length > 9
       ? (this.disableState = false)
       : (this.disableState = true);
   }
-  
   render() {
     return (
       <>

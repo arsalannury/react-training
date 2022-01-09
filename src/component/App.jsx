@@ -11,18 +11,22 @@ import ServiceRoot from './OurServices/ServicesRoot';
 import Footer from './Footer/Footer';
 import Register from './SignUpIn/Register';
 import Verify from './SignUpIn/Verify';
-import AutorizationWeb from '../Context/Autorization'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import AutorizationWeb from '../Context/Autorization';
+import {useState} from 'react';
+import { BrowserRouter as Router, Switch, Route, Link, BrowserRouter } from "react-router-dom";
 
 function App() {
+  const [auto,setAuto] = useState('');
   AOS.init();
   return (
     <>
-    <AutorizationWeb.Provider 
+    <AutorizationWeb.Provider
     value={{
-      verifyCode : localStorage.getItem('smsSend') ? JSON.parse(localStorage.getItem('smsSend')): null ,
+      autoState : auto,
+      setAutoState : setAuto,
     }}
     >
+    <BrowserRouter>
       <Router>
         <Header />
         <Switch>
@@ -44,6 +48,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+      </BrowserRouter>
       </AutorizationWeb.Provider>
     </>
   );
