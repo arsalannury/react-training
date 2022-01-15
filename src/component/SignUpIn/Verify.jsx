@@ -11,9 +11,10 @@ const Verify = () => {
   const verifyCode = useContext(AutorizationWeb);
   const [pass, createPass] = useState("");
   const [login, setLogin] = useState(true);
+  const [route,setRoute] = useState('/')
   const config = {
     headers: {
-      Authorization: `Token `,
+      Authorization: `Token`,
     },
   };
   const postDataLogin = () => {
@@ -31,6 +32,7 @@ const Verify = () => {
       })
       .catch((error) => {
         console.log(error);
+        setRoute('')
       });
   };
   const setPass = (e) => {
@@ -47,7 +49,7 @@ const Verify = () => {
           <Box>
             <Input onChange={setPass} label="Code" variant="outlined" />
             <Btn onClick={postDataLogin} disabled={login} variant="contained">
-              Login
+             <Link to="/"> Login </Link>
             </Btn>
           </Box>
         </Wrapper>

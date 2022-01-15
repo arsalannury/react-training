@@ -26,7 +26,6 @@ class Register extends Component {
       .catch((error) => {
         throw new Error("Enter Your Number Correctly");
       });
-      localStorage.setItem('smsSend',this.state.number)
   };
   handleChange = (e) => {
     this.setState({ number: e.target.value });
