@@ -9,8 +9,12 @@
     font-family: font;
     src: url('./font/Yantramanav-Medium.ttf');
 }
+@font-face {
+    font-family: font-sans;
+    src: url('./font/Sans\ a4fran3.ttf');
+}
 #Project{
-    font-family: font;
+    font-family: font,font-sans;
     height: 100%;
     position: relative;
 }

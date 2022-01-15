@@ -1,51 +1,25 @@
 import { Component } from "react";
 import styled from "styled-components";
-import Backdrop from "@mui/material/Backdrop";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import {Link} from 'react-router-dom';
 
 class Header extends Component {
-  state = {
-    open: false,
-    searched: "",
-  };
-  handleClose = (e) => {
-    if(e.target.tagName === 'INPUT') return ;
-    this.setState({ open: false });
-  };
-  handleToggle = () => {
-    this.setState({ open: true });
-  };
-  
   render() {
     return (
       <>
         <Container>
-          <Head>
-            <Logo src="Tech.png" />
-
-            <NavMenu>
-              <LiNav>Product List</LiNav>
-              <LiNav>Hiring</LiNav>
-              <LiNav>About Us</LiNav>
-              <LiNav>VR / AR</LiNav>
-            </NavMenu>
-
-            <Wrapper>
-              <SearchOutlinedIcon onClick={this.handleToggle} sx={{cursor: 'pointer'}} />
-              <SignIn><Link to="/Register">Sign In</Link></SignIn>
-              <SignUp><Link to="/Register">Sign Up</Link></SignUp>
-            </Wrapper>
-          </Head>
+          <ColumnThree>
+            <Menu>
+              <MenuItem>دسته بندی</MenuItem>
+              <MenuItem>نمایندگی ها</MenuItem>
+              <MenuItem>ساخت محصول</MenuItem>
+            </Menu>
+          </ColumnThree>
+          <ColumnTwo>
+            <Search src="search.svg" />
+          </ColumnTwo>
+          <ColumnOne>
+            <Image src="Sun.png" />
+          </ColumnOne>
         </Container>
-
-        <Backdrop
-          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          open={this.state.open}
-          onClick={this.handleClose}
-        >
-          <SearchInput placeholder="Search ..." type="text" />
-        </Backdrop>
       </>
     );
   }
@@ -53,75 +27,21 @@ class Header extends Component {
 
 export default Header;
 
-const Container = styled.header`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 90px;
-  box-shadow: 0 0 25px #eee;
-  position : sticky;
-  top : 0;
-  background : #fff;
-  z-index : 10;
-`;
-
-const Head = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 `;
-const NavMenu = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 0 !important;
-  margin: 0 0 0 25px;
+const Image = styled.img`
+  width: 190px;
 `;
-const Logo = styled.img`
-  width: 20%;
-  height: 220px;
+const Search = styled.img`
+  width: 30px;
 `;
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 100%;
-  width: 350px;
-`;
-const SearchInput = styled.input`
-  padding : 10px;
-  outline : none;
-  border-radius : 5px;
-  border : none;
-  width : 250px;
-  color : #0077b6;
-`;
-const SignIn = styled.button`
-  border: 1px solid blue;
-  padding: 4px 17px;
-  border-radius: 3px;
-  background: #fff;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  &:hover {
-    background-color: #0077b6;
-    color: #fff;
-  }
-  a{
-    text-decoration : none;
-  }
-`;
-const SignUp = styled(SignIn)`
- 
-`;
-const LiNav = styled.li`
-  list-style-type: none;
-  padding: 12px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  &:hover {
-    color: #0077b6;
-  }
-`;
+const ColumnOne = styled.div``;
+
+const ColumnTwo = styled.div``;
+const ColumnThree = styled.div``;
+
+const Menu = styled.ul``;
+const MenuItem = styled.li``;
