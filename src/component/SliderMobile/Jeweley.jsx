@@ -51,7 +51,7 @@ const GridContainer = styled(Grid)`
   transition: all 0.5s ease;
   &:hover {
     box-shadow: 0 0 5px #666;
-    transform: rotateY(360deg);
+    transform: translateY(-10px);
   }
 `;
 const Inf = styled.div`

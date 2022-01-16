@@ -29,6 +29,7 @@ class SliderMobile extends Component {
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
+            <Image src='youngman.png' alt='man' />
           {this.state.jewelery.map((item, index) => (
             <SwiperSlide key={index}>
               <Jewelery
@@ -53,4 +54,10 @@ const SwiperBody = styled(Swiper)`
  margin-top : 60px;
  background: rgba(255, 183, 3,.6);
  padding : 20px;
+ postion : relative;
+`
+const Image = styled.img`
+width : 170px;
+position : absolute;
+top : 28px;
 `
