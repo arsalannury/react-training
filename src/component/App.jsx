@@ -10,14 +10,12 @@ function App() {
   AOS.init();
   return (
     <>
-   <BrowserRouter>
    <Router>
       <Header />
        <Switch>
-         <Route exact path={'/'}><Home /></Route>
+         <Route path={'/'} component={Home} />
        </Switch>
    </Router>
-   </BrowserRouter>
     </>
   );
 }
