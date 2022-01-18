@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { useAdsContext } from '../../Context/AdsContext';
 import AllAds from './AllAds';
+import Ads from './Ads';
 import axios from 'axios';
 
 class AdsProvider extends Component {
@@ -23,6 +24,7 @@ class AdsProvider extends Component {
             }}
             >
             <AllAds />
+            <Ads />
             </useAdsContext.Provider>
             </>
         );
