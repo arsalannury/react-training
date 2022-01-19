@@ -3,7 +3,7 @@ import "aos/dist/aos.css";
 import "../../src/Index.css";
 import Header from "./Header/Header";
 import Home from "./Home/Home";
-import Electronic from './Electronics/Electronic';
+import Electronics from './Electronics/Electronics';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
    <Router>
       <Header />
        <Switch>
-         <Route path={'/Electronic'} component={Electronic} />
+         <Route path={'/Electronic'} component={Electronics} />
          <Route path={'/'} component={Home} />
        </Switch>
    </Router>
