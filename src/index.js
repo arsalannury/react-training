@@ -1,13 +1,14 @@
 import ReactDOM from "react-dom";
 import App from "./component/App";
 import { BrowserRouter } from "react-router-dom";
-import ElectronicProvider from "./Context/ElectronicContext";
+import WweatherProvider from "./Context/WeatherContext";
+import WeatherProvider from "./Context/WeatherContext";
 
 ReactDOM.render(
   <BrowserRouter>
-    <ElectronicProvider>
+    <WeatherProvider>
       <App />
-    </ElectronicProvider>
+    </WeatherProvider>
   </BrowserRouter>,
   document.getElementById("Project")
 );
