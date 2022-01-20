@@ -15,9 +15,7 @@ function Electronic({ des, image ,title ,price ,id ,card}) {
   const handleToggle = () => {
     setOpen(!open);
   };
-  const create = () => {
-    use.handleCreate(id)
-  }
+ 
   const update = () => {
     use.handleUpdate(id,card)
   }

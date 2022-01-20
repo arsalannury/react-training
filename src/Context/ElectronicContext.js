@@ -9,11 +9,13 @@ export function useElectronicContext() {
 
 function ElectronicProvider({ children }) {
   const [product, getProduct] = useState([]);
+  const [loading,isLoading] = useState(true);
   useEffect(async () => {
     const getElectronic = await axios.get(
       "https://fakestoreapi.com/products/category/electronics"
     );
     getProduct(getElectronic.data);
+    isLoading(false)
   }, []);
 
   const handleUpdate = async (idCard,card) => {
@@ -32,6 +34,8 @@ function ElectronicProvider({ children }) {
     newUpdate[index] = {...update}
     getProduct(newUpdate)
   };
+
+
   const handleDelete = async (idCard) => {
     const response = await axios.delete(
       `https://fakestoreapi.com/products/${idCard}`
@@ -40,6 +44,8 @@ function ElectronicProvider({ children }) {
     const newDelete = product.filter(card => card.id !== idCard)
     getProduct(newDelete)
   };
+
+
   const handleCreate = async () => {
     const create = {
       image:
@@ -52,7 +58,10 @@ function ElectronicProvider({ children }) {
       create
     );
     console.log(response);
+    getProduct([...product,create])
   };
+
+
   return (
     <>
       <ElectronicContext.Provider
@@ -62,6 +71,7 @@ function ElectronicProvider({ children }) {
           handleCreate,
           handleUpdate,
           handleDelete,
+          loading,
         }}
       >
         {children}
