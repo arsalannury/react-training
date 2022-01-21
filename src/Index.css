@@ -15,10 +15,10 @@
 }
 #Project{
     font-family: font,font-sans;
-    height: 100%;
+    height: 100vh;
     position: relative;
 }
 body{
-    height: 100%;
+    height: 100vh;
     overflow-x: hidden;
 }

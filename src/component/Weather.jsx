@@ -18,7 +18,6 @@ function Weather() {
   const [done, setDone] = useState(true);
   const handleChange = (e) => {
     setCity(e.target.value);
-    if (e.target.value.length === 0) setDone(true);
   };
   const handlePress = async (e) => {
     if (e.key === "Enter") {
@@ -31,6 +30,7 @@ function Weather() {
       getIcon(
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       );
+      e.target.value = "";
     }
   };
 
@@ -40,18 +40,36 @@ function Weather() {
         <h1 className={classes.title}>Search Weather City</h1>
       ) : (
         <Grid className={classes.grid_container} container>
-          <Grid item>
+          <Grid item className={classes.box_icon}>
             <img src={icon} alt="icon_weather" className={classes.icon} />
           </Grid>
-          <Grid item>
+          <Grid item className={classes.description}>
+            <Typography className={classes.situation}>
+              Situation Weather
+            </Typography>
             <Typography>{currents.weather[0].description}</Typography>
           </Grid>
-          <Grid item>
-            <Typography>{currents.wind.speed}</Typography>
-            <Typography>{currents.wind.deg}</Typography>
+          <Grid item className={classes.wind}>
+            <Box className={classes.box_wind}>
+              <Typography className={classes.title_wind}>Wind Speed</Typography>
+              <Typography>{currents.wind.speed}</Typography>
+            </Box>
+            <Box className={classes.box_wind}>
+              <Typography className={classes.title_wind}>Wind Deg</Typography>
+              <Typography>{currents.wind.deg}</Typography>
+            </Box>
           </Grid>
-          <Typography>{currents.name}</Typography>
-          <Typography>{currents.main.temp}</Typography>
+          <Typography className={classes.city}>{currents.name}</Typography>
+          <Box className={classes.temp_main}>
+            <Box className={classes.box_temp}>
+              <Typography className={classes.title_temp}>Temp</Typography>
+              <Typography>{currents.main.temp}</Typography>
+            </Box>
+            <Box className={classes.box_temp}>
+              <Typography className={classes.title_temp}>Feels like Temp</Typography>
+              <Typography>{currents.main.feels_like}</Typography>
+            </Box>
+          </Box>
         </Grid>
       )}
       <Box className={classes.box_textfield}>
