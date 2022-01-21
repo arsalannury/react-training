@@ -3,7 +3,9 @@ import { makeStyles } from "@mui/styles";
 export const useWeatherStyle = makeStyles(() => ({
   inputt: {
     width: "70%",
-    margin: "auto !important",
+    margin: "0 auto 40px auto !important",
+    outline : 'none',
+    direction : 'ltr',
   },
   icon: {
     width: "35%",
@@ -14,7 +16,7 @@ export const useWeatherStyle = makeStyles(() => ({
   grid_container: {
     boxShadow: "0 18px 20px #888",
     padding: "20px",
-    margin: "100px",
+    margin: "100px auto",
     minHeight: "500px",
     width: "450px !important",
     borderRadius: "10px",
@@ -72,8 +74,13 @@ wind : {
 title_wind : {
     borderBottom : '1px solid #ddd',
 },
+city_box : {
+    display : 'flex',
+    alignItems : 'center',
+    justifyContent : 'space-evenly',
+},
 city : {
-    fontSize: '3em',
+    fontSize: '3em !important',
     padding: '30px',
 },
 temp_main : {
