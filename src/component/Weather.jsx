@@ -1,4 +1,4 @@
-import { useWeather } from "../Context/WeatherContext";
+import {Toaster,toast} from 'react-hot-toast';
 import { Grid } from "@mui/material";
 import { useWeatherStyle } from "../styles/WeatherStyle";
 import { Typography } from "@mui/material";
@@ -11,8 +11,7 @@ function Weather() {
   const [currents, setCurrent] = useState({});
   const [icon, getIcon] = useState("");
   const [city, setCity] = useState("");
-  const [get, toGet] = useState(true);
-  const [background,setBackground] = useState('');
+  const [loading, isLoading] = useState(true);
   const apiKey = "71c8a69e3fa4aab23c5f0d514d5b62d8";
   const lang = "fa";
   const classes = useWeatherStyle();
@@ -20,38 +19,34 @@ function Weather() {
   const handleChange = (e) => {
     setCity(e.target.value);
   };
+
   const handlePress = async (e) => {
     if (e.key === "Enter") {
       const response = await axios.get(
         `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-      ).catch( error => {
+      ).catch( errorr => {
+          toast.error(`${city} Not Found`)
           throw new Error('Not Found Your City')
       })
       setCurrent(response.data);
       setDone(false);
-      console.log(response.data)
-      console.log(new Date((response.data.sys.sunrise + response.data.timezone) * 1000))
-      toGet(false);
       getIcon(
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       );
       e.target.value = "";
-      if(response.data.weather[0].description === 'clear sky'){
-          setBackground('#90e0ef')
-      }else {
-          setBackground('#fff')
-      }
+      toast.success(`${response.data.name} is Availiable`)
     }
   };
 
   return (
     <>
       {done ? (
-        <h1 className={classes.title}>Search Weather City</h1>
-      ) : get ? (
-        <WeatherLoading />
+        <Box className={classes.star_box}>
+            <img className={classes.stars} src="stars.png" alt="star" />
+            <h1 className={classes.title}>Search Weather City</h1>
+        </Box>
       ) : (
-        <Grid className={classes.grid_container} style={{background : background}} container>
+          <Grid className={classes.grid_container} container data-aos="fade-down" data-aos-duration="2000">
           <Grid item className={classes.box_icon}>
             <img src={icon} alt="icon_weather" className={classes.icon} />
           </Grid>
@@ -62,11 +57,11 @@ function Weather() {
             <Typography>{currents.weather[0].description}</Typography>
           </Grid>
           <Grid item className={classes.wind}>
-            <Box className={classes.box_wind}>
+            <Box className={classes.box_wind_one}>
               <Typography className={classes.title_wind}>Wind Speed</Typography>
               <Typography>{currents.wind.speed}</Typography>
             </Box>
-            <Box className={classes.box_wind}>
+            <Box className={classes.box_wind_two}>
               <Typography className={classes.title_wind}>Wind Deg</Typography>
               <Typography>{currents.wind.deg}</Typography>
             </Box>
@@ -76,15 +71,15 @@ function Weather() {
             <Typography>{currents.sys.country}</Typography>
           </Box>
           <Box className={classes.temp_main}>
-            <Box className={classes.box_temp}>
+            <Box className={classes.box_temp_one}>
               <Typography className={classes.title_temp}>Temp</Typography>
-              <Typography>{currents.main.temp}</Typography>
+              <Typography>{currents.main.temp} C</Typography>
             </Box>
-            <Box className={classes.box_temp}>
+            <Box className={classes.box_temp_two}>
               <Typography className={classes.title_temp}>
-                Feels like Temp
+                Feels like
               </Typography>
-              <Typography>{currents.main.feels_like}</Typography>
+              <Typography>{currents.main.feels_like} C</Typography>
             </Box>
           </Box>
         </Grid>
@@ -93,10 +88,11 @@ function Weather() {
         <TextField
           onKeyPress={handlePress}
           onChange={handleChange}
-          label={"City"}
+          label={"City Name"}
           className={classes.inputt}
         />
       </Box>
+      <Toaster />
     </>
   );
 }

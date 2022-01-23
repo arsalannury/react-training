@@ -1,9 +1,13 @@
 import { Skeleton } from "@mui/material";
+import { useWeatherStyle } from "../../styles/WeatherStyle";
 
 function WeatherLoading() {
+  const classes = useWeatherStyle();
   return(
       <>
-      <Skeleton width={450} height={300} />
+      <div className={classes.weatherLoading}>
+      <Skeleton width={500} height={550} />
+      </div>
       </>
   )
 }

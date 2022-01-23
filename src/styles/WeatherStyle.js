@@ -4,8 +4,8 @@ export const useWeatherStyle = makeStyles(() => ({
   inputt: {
     width: "70%",
     margin: "0 auto 40px auto !important",
-    outline : 'none',
-    direction : 'ltr',
+    outline: "none",
+    direction: "ltr",
   },
   icon: {
     width: "35%",
@@ -14,7 +14,8 @@ export const useWeatherStyle = makeStyles(() => ({
     width: "100%",
   },
   grid_container: {
-    boxShadow: "0 18px 20px #888",
+    boxShadow: "12.31px 12.31px 23px #CACCCF, -12.31px -12.31px 23px #FFFFFF",
+    backgroundImage : 'linear-gradient(rgb(243, 244, 246), rgb(209, 213, 219))',
     padding: "20px",
     margin: "100px auto",
     minHeight: "500px",
@@ -22,10 +23,6 @@ export const useWeatherStyle = makeStyles(() => ({
     borderRadius: "10px",
     flexDirection: "column !important",
     alignItems: "center",
-    // backdropFilter: 'blur(22px) saturate(99%)',
-    // backgroundColor: 'rgba(255, 255, 255, 0.58)',
-    // borderRadius: '12px',
-    // border: '1px solid rgba(209, 213, 219, 0.3)',
   },
   box_textfield: {
     display: "flex",
@@ -36,70 +33,100 @@ export const useWeatherStyle = makeStyles(() => ({
     fontSize: "3em",
     textAlign: "center",
     margin: "100px",
-   
-    
+
     background:
       "linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39))",
-      WebkitBackgroundClip: "text",
+    WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
   },
-  description : {
-    width: '100%',
-    direction: 'ltr',
-    display: 'flex',
-    flexDirection: 'column !important',
-    justifyContent: 'space-between',
-    padding: '10px',
+  description: {
+    width: "100%",
+    direction: "ltr",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "10px",
+    borderBottom: '1px solid #fff',
   },
-  situation : {
-    width: '115px',
-    borderBottom: '1px solid #ddd',
+  situation: {
+   fontWeight : 'bold',
+  },
+  box_wind_one: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    padding: "10px",
+    width: "100%",
+    borderRight: '1px solid #fff',
+  },
+  box_wind_two : {
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    padding: "10px",
+    width: "100%",
+  },
+  wind: {
+    width: "100%",
+    display: "flex",
+    direction: "ltr",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "15px",
+    borderBottom: '1px solid #fff',
+  },
+  title_wind: {
+    fontWeight : 'bold',
+  },
+  city_box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
+  city: {
+    fontSize: "3em !important",
+    padding: "30px",
+  },
+  temp_main: {
+    width: "100%",
+    display: "flex",
+    direction: "ltr",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "15px",
+    borderTop: '1px solid #fff',
+  },
+  box_temp_one: {
+    width: "100%",
+    display: "flex",
+    padding: "10px",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    borderRight: '1px solid #fff',
+  },
+  box_temp_two: {
+    width: "100%",
+    display: "flex",
+    padding: "10px",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
+  title_temp: {
+    fontWeight : 'bold',
+  },
+  weatherLoading: {
+    padding: "20px",
+    margin: "100px auto",
+    borderRadius: "10px",
+  },
+  star_box : {
+   Zindex : '10px',
+   position : 'relative',
 },
-box_wind : {
-    display: 'flex',
-    flexDirection: 'column !important',
-    justifyContent: 'space-between',
-    alignItems : 'center',
-    padding: '10px',
-    width : '100%',
-},
-wind : {
-    width: '100%',
-    display: 'flex',
-    direction: 'ltr',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding : '15px',
-},
-title_wind : {
-    borderBottom : '1px solid #ddd',
-},
-city_box : {
-    display : 'flex',
-    alignItems : 'center',
-    justifyContent : 'space-evenly',
-},
-city : {
-    fontSize: '3em !important',
-    padding: '30px',
-},
-temp_main : {
-    width: '100%',
-    display: 'flex',
-    direction: 'ltr',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding : '15px',
-},
-box_temp : {
-    width: '100%',
-    display: 'flex',
-    padding: '10px',
-    alignItems: 'center',
-    flexDirection: 'column !important',
-    justifyContent: 'space-between',
-},
-title_temp : {
-    borderBottom : '1px solid #ddd',
+stars : {
+  position: 'absolute',
+  right: '218px',
+  top: '-37px',
+  Zindex: '-1',
 }
+  
 }));
