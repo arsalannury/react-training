@@ -1,19 +1,18 @@
+import useWeather from '../Context/WeatherContext';
 import {Toaster,toast} from 'react-hot-toast';
-import { Grid } from "@mui/material";
 import { useWeatherStyle } from "../styles/WeatherStyle";
-import { Typography } from "@mui/material";
-import { TextField, Box } from "@mui/material";
+import { TextField, Box ,Typography,Grid } from "@mui/material";
 import { useState } from "react";
 import WeatherLoading from "./Loading/WeatherLoading";
 import axios from "axios";
 
 function Weather() {
+  const uses = useWeather();
   const [currents, setCurrent] = useState({});
   const [icon, getIcon] = useState("");
   const [city, setCity] = useState("");
   const [loading, isLoading] = useState(true);
   const apiKey = "71c8a69e3fa4aab23c5f0d514d5b62d8";
-  const lang = "fa";
   const classes = useWeatherStyle();
   const [done, setDone] = useState(true);
   const handleChange = (e) => {
@@ -29,6 +28,7 @@ function Weather() {
           throw new Error('Not Found Your City')
       })
       setCurrent(response.data);
+      console.log(response.data)
       setDone(false);
       getIcon(
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
