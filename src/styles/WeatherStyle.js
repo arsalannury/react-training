@@ -42,6 +42,7 @@ export const useWeatherStyle = makeStyles(() => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center !important",
+    paddingBottom: '30px',
   },
   title: {
     fontSize: "3em",

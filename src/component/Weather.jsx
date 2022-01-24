@@ -4,6 +4,7 @@ import { useWeatherStyle } from "../styles/WeatherStyle";
 import { TextField, Box, Typography, Grid, Button } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Weather() {
   const [currents, setCurrent] = useState({});
@@ -20,6 +21,7 @@ function Weather() {
   };
 
   const handlePress = async (e) => {
+    isLoading(false);
     const response = await axios
       .get(
         `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
@@ -29,7 +31,7 @@ function Weather() {
         throw new Error("Not Found Your City");
       });
     setCurrent(response.data);
-    console.log(response.data);
+    isLoading(true);
     setDone(false);
     getIcon(
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -90,19 +92,24 @@ function Weather() {
         </Grid>
       )}
       <Box className={classes.box_textfield}>
-        <Button
-          disabled={disable}
-          onClick={handlePress}
-          className={classes.search_btn}
-          variant="contained"
-        >
-          Search
-        </Button>
         <TextField
           onChange={handleChange}
           label={"City Name"}
           className={classes.inputt}
         />
+         <Button
+          disabled={disable}
+          onClick={handlePress}
+          className={classes.search_btn}
+          variant="contained"
+        >
+          {/* Search */}
+          {loading ? (
+            <span>Search</span>
+          ) : (
+            <CircularProgress  sx={{ width:'26px !important',height:'26px !important',color: '#fff'}}/>
+          )}
+        </Button>
       </Box>
       <Toaster />
     </>
