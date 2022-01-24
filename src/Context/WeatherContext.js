@@ -1,5 +1,5 @@
 // import axios from "axios";
-import { createContext,useState,useContext  } from "react";
+import { createContext, useState, useContext } from "react";
 
 const WeatherContext = createContext();
 
@@ -8,13 +8,11 @@ export function useWeather() {
 }
 
 const WeatherProvider = ({ children }) => {
-  const [location,getLocation] = useState('');
   return (
     <>
       <WeatherContext.Provider
         value={{
-         location,
-         getLocation ,
+         
         }}
       >
         {children}

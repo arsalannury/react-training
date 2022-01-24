@@ -1,7 +1,7 @@
-// import useWeather from '../Context/WeatherContext';
+
 
 function WeatherLoaction() {
-//   const use = useWeather();
+
   const location = () => {
     mapboxgl.accessToken =
       "pk.eyJ1IjoiYXJzYWxhbm5uIiwiYSI6ImNreXJmMGJxNzBtZjcyb3RncG5rMDc1dGYifQ.TS7y-VExTZnK1OA4V4GmNw";

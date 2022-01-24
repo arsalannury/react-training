@@ -1,13 +1,10 @@
-import useWeather from '../Context/WeatherContext';
 import {Toaster,toast} from 'react-hot-toast';
 import { useWeatherStyle } from "../styles/WeatherStyle";
 import { TextField, Box ,Typography,Grid } from "@mui/material";
 import { useState } from "react";
-import WeatherLoading from "./Loading/WeatherLoading";
 import axios from "axios";
 
 function Weather() {
-  const uses = useWeather();
   const [currents, setCurrent] = useState({});
   const [icon, getIcon] = useState("");
   const [city, setCity] = useState("");
@@ -37,7 +34,7 @@ function Weather() {
       toast.success(`${response.data.name} is Availiable`)
     }
   };
-
+  
   return (
     <>
       {done ? (
@@ -82,6 +79,7 @@ function Weather() {
               <Typography>{currents.main.feels_like} C</Typography>
             </Box>
           </Box>
+          {/* <div id="map" style={{width: '400px' , height: '300px'}}> </div> */}
         </Grid>
       )}
       <Box className={classes.box_textfield}>
