@@ -12,10 +12,24 @@ export const useWeatherStyle = makeStyles(() => ({
   },
   box_icon: {
     width: "100%",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  map_href:{
+    alignSelf: 'flex-start',
+  },
+  map_img : {
+    width: '35px',
+    opacity: '.2',
+    transition: 'all .5s ease',
+    '&:hover' : {
+      opacity: '1'
+    }
   },
   grid_container: {
     boxShadow: "12.31px 12.31px 23px #CACCCF, -12.31px -12.31px 23px #FFFFFF",
-    backgroundImage : 'linear-gradient(rgb(243, 244, 246), rgb(209, 213, 219))',
+    backgroundImage: "linear-gradient(rgb(243, 244, 246), rgb(209, 213, 219))",
     padding: "20px",
     margin: "100px auto",
     minHeight: "500px",
@@ -27,7 +41,7 @@ export const useWeatherStyle = makeStyles(() => ({
   box_textfield: {
     display: "flex",
     alignItems: "center",
-    justifyContent: 'center !important',
+    justifyContent: "center !important",
   },
   title: {
     fontSize: "3em",
@@ -45,10 +59,10 @@ export const useWeatherStyle = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-between",
     padding: "10px",
-    borderBottom: '1px solid #fff',
+    borderBottom: "1px solid #fff",
   },
   situation: {
-   fontWeight : 'bold',
+    fontWeight: "bold",
   },
   box_wind_one: {
     display: "flex",
@@ -56,9 +70,9 @@ export const useWeatherStyle = makeStyles(() => ({
     alignItems: "center",
     padding: "10px",
     width: "100%",
-    borderRight: '1px solid #fff',
+    borderRight: "1px solid #fff",
   },
-  box_wind_two : {
+  box_wind_two: {
     display: "flex",
     justifyContent: "space-evenly",
     alignItems: "center",
@@ -72,10 +86,10 @@ export const useWeatherStyle = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "15px",
-    borderBottom: '1px solid #fff',
+    borderBottom: "1px solid #fff",
   },
   title_wind: {
-    fontWeight : 'bold',
+    fontWeight: "bold",
   },
   city_box: {
     display: "flex",
@@ -93,7 +107,7 @@ export const useWeatherStyle = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "15px",
-    borderTop: '1px solid #fff',
+    borderTop: "1px solid #fff",
   },
   box_temp_one: {
     width: "100%",
@@ -101,7 +115,7 @@ export const useWeatherStyle = makeStyles(() => ({
     padding: "10px",
     alignItems: "center",
     justifyContent: "space-evenly",
-    borderRight: '1px solid #fff',
+    borderRight: "1px solid #fff",
   },
   box_temp_two: {
     width: "100%",
@@ -111,25 +125,59 @@ export const useWeatherStyle = makeStyles(() => ({
     justifyContent: "space-evenly",
   },
   title_temp: {
-    fontWeight : 'bold',
+    fontWeight: "bold",
   },
   weatherLoading: {
     padding: "20px",
     margin: "100px auto",
     borderRadius: "10px",
   },
-  star_box : {
-   Zindex : '10px',
-   position : 'relative',
-},
-stars : {
-  position: 'absolute',
-  right: '218px',
-  top: '-37px',
-  Zindex: '-1',
-},
-search_btn : {
-  padding: '15px 16px !important', 
-}
-  
+  star_box: {
+    Zindex: "10px",
+    position: "relative",
+  },
+  stars: {
+    position: "absolute",
+    right: "218px",
+    top: "-37px",
+    Zindex: "-1",
+  },
+  search_btn: {
+    padding: "15px 16px !important",
+  },
+
+  acordion: {
+    backgroundColor: "inherit !important",
+    minWidth: "360px",
+  },
+
+  detail_box_one: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "10px",
+  },
+  detail_box_two: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderTop: "1px solid #fff",
+    padding: "10px",
+  },
+  details_box: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    width: "50%",
+    direction: "ltr",
+  },
+  details_box_border : {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    width: "50%",
+    direction: "ltr",
+    borderRight: '1px solid #fff',
+  },
+ 
 }));
