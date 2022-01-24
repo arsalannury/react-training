@@ -1,6 +1,12 @@
 import { makeStyles } from "@mui/styles";
 
 export const useWeatherStyle = makeStyles(() => ({
+  header:{
+    display: 'flex',
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+    padding: '10px 10px 0 10px',
+  },
   inputt: {
     width: "70%",
     margin: "0 !important",
@@ -9,6 +15,7 @@ export const useWeatherStyle = makeStyles(() => ({
   },
   icon: {
     width: "35%",
+    filter: 'drop-shadow(2px 4px 6px black)',
   },
   box_icon: {
     width: "100%",
@@ -47,8 +54,6 @@ export const useWeatherStyle = makeStyles(() => ({
   title: {
     fontSize: "3em",
     textAlign: "center",
-    margin: "100px",
-
     background:
       "linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39))",
     WebkitBackgroundClip: "text",
@@ -133,15 +138,11 @@ export const useWeatherStyle = makeStyles(() => ({
     margin: "100px auto",
     borderRadius: "10px",
   },
-  star_box: {
-    Zindex: "10px",
-    position: "relative",
+  title_box: {
+    padding: '70px',
   },
-  stars: {
-    position: "absolute",
-    right: "218px",
-    top: "-37px",
-    Zindex: "-1",
+  world: {
+    width:'50px',
   },
   search_btn: {
     padding: "15px 16px !important",
@@ -178,7 +179,7 @@ export const useWeatherStyle = makeStyles(() => ({
     justifyContent: "space-evenly",
     width: "50%",
     direction: "ltr",
-    borderRight: '1px solid #fff',
+    borderLeft: '1px solid #fff',
   },
  
 }));

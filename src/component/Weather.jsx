@@ -4,7 +4,8 @@ import { useWeatherStyle } from "../styles/WeatherStyle";
 import { TextField, Box, Typography, Grid, Button } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
-import CircularProgress from '@mui/material/CircularProgress';
+import {useHistory} from 'react-router-dom';
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Weather() {
   const [currents, setCurrent] = useState({});
@@ -15,6 +16,7 @@ function Weather() {
   const apiKey = "71c8a69e3fa4aab23c5f0d514d5b62d8";
   const classes = useWeatherStyle();
   const [done, setDone] = useState(true);
+  const history = useHistory();
   const handleChange = (e) => {
     setCity(e.target.value);
     e.target.value.length >= 3 ? setDisable(false) : setDisable(true);
@@ -28,6 +30,7 @@ function Weather() {
       )
       .catch((errorr) => {
         toast.error(`${city} Not Found`);
+        history.push('/notFound')
         throw new Error("Not Found Your City");
       });
     setCurrent(response.data);
@@ -41,9 +44,11 @@ function Weather() {
 
   return (
     <>
+      <Box className={classes.header}>
+        <img className={classes.world} src="world.png" alt="header_icon" />
+      </Box>
       {done ? (
-        <Box className={classes.star_box}>
-          <img className={classes.stars} src="stars.png" alt="star" />
+        <Box className={classes.title_box}>
           <h1 className={classes.title}>Search Weather City</h1>
         </Box>
       ) : (
@@ -97,17 +102,22 @@ function Weather() {
           label={"City Name"}
           className={classes.inputt}
         />
-         <Button
+        <Button
           disabled={disable}
           onClick={handlePress}
           className={classes.search_btn}
           variant="contained"
         >
-          {/* Search */}
           {loading ? (
             <span>Search</span>
           ) : (
-            <CircularProgress  sx={{ width:'26px !important',height:'26px !important',color: '#fff'}}/>
+            <CircularProgress
+              sx={{
+                width: "26px !important",
+                height: "26px !important",
+                color: "#fff",
+              }}
+            />
           )}
         </Button>
       </Box>
