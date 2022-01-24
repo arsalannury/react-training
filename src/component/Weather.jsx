@@ -1,6 +1,6 @@
-import {Toaster,toast} from 'react-hot-toast';
+import { Toaster, toast } from "react-hot-toast";
 import { useWeatherStyle } from "../styles/WeatherStyle";
-import { TextField, Box ,Typography,Grid } from "@mui/material";
+import { TextField, Box, Typography, Grid, Button } from "@mui/material";
 import { useState } from "react";
 import axios from "axios";
 
@@ -17,33 +17,43 @@ function Weather() {
   };
 
   const handlePress = async (e) => {
-    if (e.key === "Enter") {
-      const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-      ).catch( errorr => {
-          toast.error(`${city} Not Found`)
-          throw new Error('Not Found Your City')
-      })
+    if (!e.target.value) {
+      toast.error('Please Choose Your City')
+      return;
+    } else {
+      const response = await axios
+        .get(
+          `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+        )
+        .catch((errorr) => {
+          toast.error(`${city} Not Found`);
+          throw new Error("Not Found Your City");
+        });
       setCurrent(response.data);
-      console.log(response.data)
+      console.log(response.data);
       setDone(false);
       getIcon(
         `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
       );
       e.target.value = "";
-      toast.success(`${response.data.name} is Availiable`)
+      toast.success(`${response.data.name} is Availiable`);
     }
   };
-  
+
   return (
     <>
       {done ? (
         <Box className={classes.star_box}>
-            <img className={classes.stars} src="stars.png" alt="star" />
-            <h1 className={classes.title}>Search Weather City</h1>
+          <img className={classes.stars} src="stars.png" alt="star" />
+          <h1 className={classes.title}>Search Weather City</h1>
         </Box>
       ) : (
-          <Grid className={classes.grid_container} container data-aos="fade-down" data-aos-duration="2000">
+        <Grid
+          className={classes.grid_container}
+          container
+          data-aos="fade-down"
+          data-aos-duration="2000"
+        >
           <Grid item className={classes.box_icon}>
             <img src={icon} alt="icon_weather" className={classes.icon} />
           </Grid>
@@ -73,18 +83,21 @@ function Weather() {
               <Typography>{currents.main.temp} C</Typography>
             </Box>
             <Box className={classes.box_temp_two}>
-              <Typography className={classes.title_temp}>
-                Feels like
-              </Typography>
+              <Typography className={classes.title_temp}>Feels like</Typography>
               <Typography>{currents.main.feels_like} C</Typography>
             </Box>
           </Box>
-          {/* <div id="map" style={{width: '400px' , height: '300px'}}> </div> */}
         </Grid>
       )}
       <Box className={classes.box_textfield}>
+        <Button
+          onClick={handlePress}
+          className={classes.search_btn}
+          variant="contained"
+        >
+          Search
+        </Button>
         <TextField
-          onKeyPress={handlePress}
           onChange={handleChange}
           label={"City Name"}
           className={classes.inputt}

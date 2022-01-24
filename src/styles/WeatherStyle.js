@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 export const useWeatherStyle = makeStyles(() => ({
   inputt: {
     width: "70%",
-    margin: "0 auto 40px auto !important",
+    margin: "0 !important",
     outline: "none",
     direction: "ltr",
   },
@@ -27,7 +27,7 @@ export const useWeatherStyle = makeStyles(() => ({
   box_textfield: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "cetner",
+    justifyContent: 'center !important',
   },
   title: {
     fontSize: "3em",
@@ -127,6 +127,9 @@ stars : {
   right: '218px',
   top: '-37px',
   Zindex: '-1',
+},
+search_btn : {
+  padding: '15px 16px !important', 
 }
   
 }));
