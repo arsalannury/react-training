@@ -1,23 +1,36 @@
 import { useHistory } from "react-router-dom";
-import { Box , Typography} from "@mui/material";
+import { Box , Typography , Grid ,Button} from "@mui/material";
 import { useErrorStyle } from "../../styles/ErrorStyle";
 
 function WeatherError() {
   const classes = useErrorStyle();
   return (
     <>
-      <Box className={classes.box_error}>
-        <img
+      <Grid container className={classes.box_error}>
+       <Grid item sm={12} md={6} lg={4} >
+       <img
           className={classes.img_error}
-          src="https://static-cdn.icons8.com/l/animations/images/searching.gif"
+          src="404.png"
           alt="not_city"
         />
-         <Box>
-              <Typography variant="h1">
+       </Grid>
+         <Grid item sm={12} md={6} lg={8}>
+             <Box className={classes.text_box}>
+             <Typography variant="h2" className={classes.h2}>
                   What is Wrong ?
               </Typography>
-          </Box>
-      </Box>
+              <Typography variant="h5" className={classes.h5}>
+                Your Request is Faild
+              </Typography>
+              <Typography className={classes.paragraph}>
+                It means there is no this city for show weather information
+              </Typography>
+              <Button variant='contained' className={classes.button}>
+               Home
+              </Button>
+             </Box>
+          </Grid>
+      </Grid>
     </>
   );
 }
