@@ -26,13 +26,16 @@ export const useErrorStyle = makeStyles(() => ({
   h5: {
     textAlign: "center",
     padding: "10px",
+    color: '#222',
   },
   paragraph: {
     textAlign: "center",
     padding: "10px",
+    color: '#222',
   },
   button: {
     width: '100px',
-    padding: '10px 16px',
+    padding: '10px 16px !important',
+    marginTop: '30px !important',
   },
 }));

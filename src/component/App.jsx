@@ -3,7 +3,7 @@ import "aos/dist/aos.css";
 import "../../src/Index.css";
 import Weather from "./Weather";
 import WeatherError from "./Errors/WeatherError";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route , Router} from "react-router-dom";
 
 function App() {
   AOS.init();

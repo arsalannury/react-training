@@ -30,7 +30,7 @@ function Weather() {
       )
       .catch((errorr) => {
         toast.error(`${city} Not Found`);
-        history.push('/notFound')
+        history.replace('/notFound');
         throw new Error("Not Found Your City");
       });
     setCurrent(response.data);

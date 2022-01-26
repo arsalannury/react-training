@@ -4,9 +4,18 @@ import { useErrorStyle } from "../../styles/ErrorStyle";
 
 function WeatherError() {
   const classes = useErrorStyle();
+  const history = useHistory();
+  const handleHome = () => {
+   history.replace('/')
+  }
+ const handleLoad = () => {
+   setTimeout(() => {
+    history.replace('/')
+   },8000);
+  }
   return (
     <>
-      <Grid container className={classes.box_error}>
+      <Grid onLoad={handleLoad} container className={classes.box_error}>
        <Grid item sm={12} md={6} lg={4} >
        <img
           className={classes.img_error}
@@ -25,7 +34,7 @@ function WeatherError() {
               <Typography className={classes.paragraph}>
                 It means there is no this city for show weather information
               </Typography>
-              <Button variant='contained' className={classes.button}>
+              <Button variant='contained' className={classes.button} onClick={handleHome}>
                Home
               </Button>
              </Box>
