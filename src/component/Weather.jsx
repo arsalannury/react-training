@@ -13,6 +13,7 @@ function Weather() {
   const [city, setCity] = useState("");
   const [loading, isLoading] = useState(true);
   const [disable, setDisable] = useState(true);
+  const [value,setValue] = useState('');
   const apiKey = "71c8a69e3fa4aab23c5f0d514d5b62d8";
   const classes = useWeatherStyle();
   const [done, setDone] = useState(true);
@@ -20,6 +21,7 @@ function Weather() {
   const handleChange = (e) => {
     setCity(e.target.value);
     e.target.value.length >= 3 ? setDisable(false) : setDisable(true);
+    setValue(e.target.value);
   };
 
   const handlePress = async (e) => {
@@ -29,7 +31,7 @@ function Weather() {
         `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       )
       .catch((errorr) => {
-        toast.error(`${city} Not Found`);
+        setValue('');
         history.replace('/notFound');
         throw new Error("Not Found Your City");
       });
@@ -40,6 +42,7 @@ function Weather() {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     toast.success(`${response.data.name} is Availiable`);
+    setValue('');
   };
 
   return (
@@ -101,6 +104,7 @@ function Weather() {
           onChange={handleChange}
           label={"City Name"}
           className={classes.inputt}
+          value={value}
         />
         <Button
           disabled={disable}
