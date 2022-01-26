@@ -12,10 +12,16 @@ export const useWeatherStyle = makeStyles(() => ({
     margin: "0 !important",
     outline: "none",
     direction: "ltr",
+    "@media screen and (max-width : 325px)" : {
+      width : '60%',
+    }
   },
   icon: {
     width: "35%",
     filter: 'drop-shadow(2px 4px 6px black)',
+    "@media screen and (max-width : 450px)" : {
+      width : '45%',
+    }
   },
   box_icon: {
     width: "100%",
@@ -44,7 +50,10 @@ export const useWeatherStyle = makeStyles(() => ({
     borderRadius: "10px",
     flexDirection: "column !important",
     alignItems: "center",
-
+     "@media screen and (max-width : 450px)" : {
+      width : '290px !important',
+      margin : '50px auto',
+     },
   },
   box_textfield: {
     display: "flex",
@@ -78,6 +87,9 @@ export const useWeatherStyle = makeStyles(() => ({
     padding: "10px",
     width: "100%",
     borderRight: "1px solid #fff",
+    "@media screen and (max-width : 450px)" : {
+      borderRight: "none",
+    }
   },
   box_wind_two: {
     display: "flex",
@@ -94,6 +106,9 @@ export const useWeatherStyle = makeStyles(() => ({
     justifyContent: "space-between",
     padding: "15px",
     borderBottom: "1px solid #fff",
+    "@media screen and (max-width : 450px)" : {
+      flexWrap: 'wrap',
+    }
   },
   title_wind: {
     fontWeight: "bold",
@@ -106,6 +121,9 @@ export const useWeatherStyle = makeStyles(() => ({
   city: {
     fontSize: "3em !important",
     padding: "30px",
+    "@media screen and (max-width : 450px)" : {
+      fontSize: '2em !important',
+    }
   },
   temp_main: {
     width: "100%",
@@ -115,6 +133,9 @@ export const useWeatherStyle = makeStyles(() => ({
     justifyContent: "space-between",
     padding: "15px",
     borderTop: "1px solid #fff",
+    "@media screen and (max-width : 450px)" : {
+      flexWrap: 'wrap',
+    }
   },
   box_temp_one: {
     width: "100%",
@@ -123,6 +144,9 @@ export const useWeatherStyle = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "space-evenly",
     borderRight: "1px solid #fff",
+    "@media screen and (max-width : 450px)" : {
+      borderRight: "none",
+    }
   },
   box_temp_two: {
     width: "100%",
@@ -159,6 +183,9 @@ export const useWeatherStyle = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "10px",
+    "@media screen and (max-width : 450px)" : {
+      padding : '10px 0'
+    }
   },
   detail_box_two: {
     display: "flex",
@@ -166,6 +193,9 @@ export const useWeatherStyle = makeStyles(() => ({
     justifyContent: "space-between",
     borderTop: "1px solid #fff",
     padding: "10px",
+    "@media screen and (max-width : 450px)" : {
+      padding : '10px 0'
+    }
   },
   details_box: {
     display: "flex",

@@ -18,7 +18,7 @@ function WeatherError() {
           alt="not_city"
         />
        </Grid>
-         <Grid item sm={12} md={6} lg={8}>
+         <Grid item sm={12} md={6} lg={8} className={classes.grid_item_text}>
              <Box className={classes.text_box}>
              <Typography variant="h2" className={classes.h2}>
                   What is Wrong ?
