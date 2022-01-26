@@ -55,8 +55,8 @@ function Weather() {
           <h1 className={classes.title}>Search Weather City</h1>
         </Box>
       ) : (
-        <Grid className={classes.grid_container} container>
-          <Grid item className={classes.box_icon}>
+        <Box className={classes.grid_container} >
+          <Box  className={classes.box_icon}>
             <img src={icon} alt="icon_weather" className={classes.icon} />
             <a
               target="_blank"
@@ -65,14 +65,14 @@ function Weather() {
             >
               <img className={classes.map_img} src="map.png" alt="map_image" />
             </a>
-          </Grid>
-          <Grid item className={classes.description}>
+          </Box>
+          <Box  className={classes.description}>
             <Typography className={classes.situation}>
               Situation Weather
             </Typography>
             <Typography>{currents.weather[0].description}</Typography>
-          </Grid>
-          <Grid item className={classes.wind}>
+          </Box>
+          <Box  className={classes.wind}>
             <Box className={classes.box_wind_one}>
               <Typography className={classes.title_wind}>Wind Speed</Typography>
               <Typography>{currents.wind.speed}</Typography>
@@ -81,7 +81,7 @@ function Weather() {
               <Typography className={classes.title_wind}>Wind Deg</Typography>
               <Typography>{currents.wind.deg}</Typography>
             </Box>
-          </Grid>
+          </Box>
           <Box className={classes.city_box}>
             <Typography className={classes.city}>{currents.name}</Typography>
             <Typography>{currents.sys.country}</Typography>
@@ -97,7 +97,7 @@ function Weather() {
             </Box>
           </Box>
           <Acardion details={currents.main} />
-        </Grid>
+        </Box>
       )}
       <Box className={classes.box_textfield}>
         <TextField

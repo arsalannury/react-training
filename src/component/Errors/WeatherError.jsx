@@ -8,14 +8,9 @@ function WeatherError() {
   const handleHome = () => {
    history.replace('/')
   }
- const handleLoad = () => {
-   setTimeout(() => {
-    history.replace('/')
-   },8000);
-  }
   return (
     <>
-      <Grid onLoad={handleLoad} container className={classes.box_error}>
+      <Grid container className={classes.box_error}>
        <Grid item sm={12} md={6} lg={4} >
        <img
           className={classes.img_error}

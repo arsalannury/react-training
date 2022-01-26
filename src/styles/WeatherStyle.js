@@ -44,6 +44,7 @@ export const useWeatherStyle = makeStyles(() => ({
     borderRadius: "10px",
     flexDirection: "column !important",
     alignItems: "center",
+
   },
   box_textfield: {
     display: "flex",
@@ -150,7 +151,7 @@ export const useWeatherStyle = makeStyles(() => ({
 
   acordion: {
     backgroundColor: "inherit !important",
-    minWidth: "360px",
+    width: "100%",
   },
 
   detail_box_one: {
