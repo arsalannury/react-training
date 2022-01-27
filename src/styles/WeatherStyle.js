@@ -54,6 +54,9 @@ export const useWeatherStyle = makeStyles(() => ({
       width : '290px !important',
       margin : '50px auto',
      },
+     "@media screen and (min-width: 451px) and (max-width : 550px)" :{
+      width: "400px !important",
+     },
   },
   box_textfield: {
     display: "flex",
@@ -68,6 +71,9 @@ export const useWeatherStyle = makeStyles(() => ({
       "linear-gradient(to right, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39))",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
+    "@media screen and (max-width : 450px)" : {
+      fontSize : '2em',
+    }
   },
   description: {
     width: "100%",
