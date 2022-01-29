@@ -5,9 +5,7 @@
     scroll-behavior: smooth;
     font-size: 16px;
 }
-html{
-    background-color: #eee;
-}
+
 @font-face {
     font-family: font;
     src: url('./font/Yantramanav-Medium.ttf');
@@ -19,9 +17,7 @@ html{
 #Project{
     font-family: font,font-sans;
     height: 100vh;
-    position: relative;
 }
 body{
     height: 100vh;
-    overflow-x: hidden;
 }
