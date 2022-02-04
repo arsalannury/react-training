@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {Grid} from '@mui/material';
+import  queryString from 'query-string'
+
 
 const EachUser = (props) => {
   const [user, getUser] = useState({});
@@ -13,6 +15,8 @@ const EachUser = (props) => {
       getUser(response.data.data);
     };
     deal();
+   console.log(queryString.parse(props.location.search));
+
   }, []);
 
   return (

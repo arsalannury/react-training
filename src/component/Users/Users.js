@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { Grid, Button } from "@mui/material";
 import User from "./User";
+import {Link} from 'react-router-dom';
 
 const Users = (props) => {
   const [data, getData] = useState([]);
@@ -31,6 +32,9 @@ const Users = (props) => {
   };
   return (
     <>
+    <Div>
+      <Span><Link to={'/login'}>Login</Link></Span>
+    </Div>
       <ButtonContainer>
         <Create onClick={createHandler} variant="contained">
           Create User
@@ -76,3 +80,19 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
+const Div = styled.div`
+width: 100%;
+height : 40px;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+background : #eee;
+`
+const Span = styled.span`
+cursor : pointer;
+padding: 10px;
+a{
+  text-decoration: none;
+  color:#000;
+}
+`

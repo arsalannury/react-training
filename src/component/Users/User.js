@@ -3,6 +3,8 @@ import { Grid, Button, ButtonGroup } from "@mui/material";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
+
 const User = ({
   id,
   fName,
@@ -14,6 +16,7 @@ const User = ({
   item,
   deleteHandler,
 }) => {
+
   const updated = async () => {
     const datas = {
       first_name: "wait please",

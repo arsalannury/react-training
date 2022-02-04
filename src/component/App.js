@@ -1,6 +1,8 @@
 import Users from './Users/Users';
 import EachUser from './Users/EachUser';
-import {Route,Switch} from 'react-router-dom';
+import Login from './Account/Login';
+import NotFound from './NotFound/NotFound';
+import {Route,Switch,Redirect} from 'react-router-dom';
 import '../Index.css';
 
 const App = () => {
@@ -8,7 +10,10 @@ const App = () => {
         <>
        <Switch>
            <Route path={'/user/:id'} component={EachUser} />
-           <Route path={'/'} component={Users}  />
+           <Route path={'/login'} component={Login} />
+           <Route path={'/notFound'} component={NotFound} />
+           <Route path={'/'} exact component={Users}  />
+           <Redirect to={'/notFound'} />
        </Switch>
         </>
      );
