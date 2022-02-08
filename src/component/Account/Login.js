@@ -55,8 +55,10 @@ class Login extends Component {
           result
         );
         console.log(response);
+        localStorage.setItem('token',response.data.token);
         toast.success("success login");
         this.setState({isLoading : false})
+        this.props.history.replace('/dashboard');
       } catch (error) {
         this.setState({ errors: ["email or password incorrect"] });
         this.setState({isLoading : false})
