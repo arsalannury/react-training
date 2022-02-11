@@ -1,16 +1,28 @@
 import { Grid } from "@mui/material";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
+import SearchMobile from './SearchMobile';
+import {useState,useEffect} from 'react';
 
 const Search = () => {
+    const [show,setShow] = useState(true);
+    useEffect(() => {
+        window.addEventListener("resize", (e) => {
+            e.target.innerWidth <= 500 ? setShow(true) : setShow(false);
+          });
+    },[])
   return (
     <>
       <Grid container>
         <Grid item xs={6} sm={6} md={6} ld={6}>
-          <SearchBar>
-            <Icon />
-            <Input type="text" placeholder="دنبال چه محصولی هستید ؟" />
-          </SearchBar>
+         {!show ? (
+              <SearchBar>
+              <Icon />
+              <Input type="text" placeholder="دنبال چه محصولی هستید ؟" />
+            </SearchBar>
+         ) : (
+             <SearchMobile />
+         )}
         </Grid>
         <GridImages item xs={6} sm={6} md={6} ld={6}>
           <Div>
@@ -67,6 +79,10 @@ const Input = styled.input`
     border: 1px solid #bbb;
     outline: none;
     width: 300px;
+  }
+  @media screen and (max-width : 480px) {
+      width : 10px;
+      
   }
 `;
 
