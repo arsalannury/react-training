@@ -5,10 +5,11 @@ import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
+import HeaderTheme from "../../Theme/HeaderTheme";
+import styled from 'styled-components';
 
 function HeaderMobile() {
   const [state, setState] = React.useState({
@@ -16,7 +17,10 @@ function HeaderMobile() {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
@@ -25,32 +29,35 @@ function HeaderMobile() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {['دسته بندی', 'درباره ما', 'مناقصه'].map((text, index) => (
-          <ListItem button key={text}>
-            {/* <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon> */}
-            <ListItemText primary={text} />
+      <HeaderTheme>
+        <List>
+          <ListItem button>
+            <ListItemText><MenuLink to={''}>مناقصه</MenuLink></ListItemText>
           </ListItem>
-        ))}
-      </List>
+          <ListItem button>
+            <ListItemText><MenuLink to={''}>دسته بندی</MenuLink></ListItemText>
+          </ListItem>
+          <ListItem button>
+            <ListItemText><MenuLink to={''}>درباره ما</MenuLink></ListItemText>
+          </ListItem>
+        </List>
+      </HeaderTheme>
       <Divider />
-      
     </Box>
   );
 
-
-  return(
-      <>
-      {['left'].map((anchor) => (
+  return (
+    <>
+      {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <MenuBtn onClick={toggleDrawer(anchor, true)}>
+            <MenuIcon />
+          </MenuBtn>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
@@ -60,8 +67,18 @@ function HeaderMobile() {
           </Drawer>
         </React.Fragment>
       ))}
-      </>
-  )
+    </>
+  );
 }
 
 export default HeaderMobile;
+
+const MenuLink = styled(Link)`
+color : inherit;
+font-size : inherit;
+text-decoration : inherit;
+`
+
+const MenuBtn = styled(Button)`
+color : #444 !important;
+`
