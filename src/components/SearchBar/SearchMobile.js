@@ -5,7 +5,8 @@ import { useState } from "react";
 
 const SearchMobile = () => {
   const [open, setOpen] = useState(false);
-  const handleClose = () => {
+  const handleClose = (e) => {
+    if (e.target.nodeName === "INPUT") return;
     setOpen(false);
   };
   const handleToggle = () => {
@@ -14,9 +15,11 @@ const SearchMobile = () => {
 
   return (
     <>
-    <Div>
-    <Button variant="outlined" onClick={handleToggle}><SearchIconMobile /></Button>
-    </Div>
+      <Div>
+        <BtnSearchIcon variant="standard" onClick={handleToggle}>
+          <SearchIconMobile />
+        </BtnSearchIcon>
+      </Div>
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
@@ -39,7 +42,6 @@ const SearchBar = styled.div`
   justify-content: flex-start;
   position: relative;
   padding: 30px;
-//   background: #cd1c1c;
 `;
 
 const Input = styled.input`
@@ -62,7 +64,7 @@ const Input = styled.input`
     width: 300px;
   }
   @media screen and (max-width: 480px) {
-    width: 10px;
+    width: 100px;
   }
 `;
 
@@ -74,13 +76,22 @@ const Icon = styled(SearchIcon)`
 `;
 const SearchIconMobile = styled(SearchIcon)`
   cursor: pointer;
-`
+  color: #fff;
+`;
 
 const Div = styled.div`
-display: flex;
-align-items: center;
-justify-content: flex-start;
-position: relative;
-padding: 30px;
- background: #cd1c1c;
-`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 30px;
+  background: #cd1c1c;
+`;
+
+const BtnSearchIcon = styled(Button)`
+  background: #003049;
+  border-radius: 10px;
+  &:hover {
+    background: #003049;
+  }
+`;

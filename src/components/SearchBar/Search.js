@@ -7,13 +7,14 @@ import {useState,useEffect} from 'react';
 const Search = () => {
     const [show,setShow] = useState(true);
     useEffect(() => {
+      window.innerWidth <= 500 ? setShow(true) : setShow(false);
         window.addEventListener("resize", (e) => {
             e.target.innerWidth <= 500 ? setShow(true) : setShow(false);
           });
     },[])
   return (
     <>
-      <Grid container>
+      <Grid container sx={{background: '#cd1c1c'}}>
         <Grid item xs={6} sm={6} md={6} ld={6}>
          {!show ? (
               <SearchBar>
