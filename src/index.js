@@ -1,12 +1,21 @@
 import ReactDOM from "react-dom";
-import App from "./components/App";
-import {BrowserRouter} from 'react-router-dom';
+import Counter from "./components/Counter";
+import { createStore } from "redux";
+import color from './reducers';
 
-ReactDOM.render(
- 
-  <BrowserRouter>
-   <App />
-  </BrowserRouter>,
+const store = createStore(color)
 
-  document.getElementById("Project")
-);
+const render = () => {
+  ReactDOM.render(
+    <Counter 
+    colorBack={store.getState()}
+    onBlue={()=> store.dispatch({type : "ONBLUE"})}
+    onBlack={()=> store.dispatch({type : "ONBLACK"})}
+    />,
+    document.getElementById('Project')
+  )
+}
+
+render()
+
+store.subscribe(render);
