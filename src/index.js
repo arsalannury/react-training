@@ -1,21 +1,25 @@
-import ReactDOM from "react-dom";
-import Counter from "./components/Counter";
-import { createStore } from "redux";
-import color from './reducers';
+import  ReactDOM  from "react-dom";
+import Slider from './components/Counter';
+import deals from './reducers';
+import {moves} from './reducers';
+import {createStore} from 'redux';
 
-const store = createStore(color)
-
+const store = createStore(deals);
+const moveStore = createStore(moves)
 const render = () => {
-  ReactDOM.render(
-    <Counter 
-    colorBack={store.getState()}
-    onBlue={()=> store.dispatch({type : "ONBLUE"})}
-    onBlack={()=> store.dispatch({type : "ONBLACK"})}
-    />,
-    document.getElementById('Project')
-  )
-}
+    ReactDOM.render(
+        <Slider 
+        image={moveStore.getState()}
+        increment={()=> {store.dispatch({type : 'INCREMENT'})}}
+        decrement={()=> {store.dispatch({type : 'DECREMENT'})}}
+        secrement={()=> {store.dispatch({type : 'SECREMENT'})}}
+        next={()=> {moveStore.dispatch({type : 'ONE'})}}
+        />,
+        document.getElementById('Project')
+    )
+};
 
 render()
 
-store.subscribe(render);
+store.subscribe(render)
+moveStore.subscribe(render)

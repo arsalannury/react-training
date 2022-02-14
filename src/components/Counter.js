@@ -1,21 +1,24 @@
-import  { Component } from 'react';
+import { Component } from 'react'
+import {Grid,Box,Button} from '@mui/material'
 
-class Counter extends Component {
-    
-    render() { 
-        const {onBlack,onBlue,colorBack} = this.props;
+class Slider extends Component {
+    render() {
+        const {image,increment,decrement,secrement,previous,next} = this.props;
         return (
             <>
-            <div>
-                <h1 style={{padding: '50px', background : colorBack}}>change my background</h1>
-                <div>
-                    <button onClick={onBlue}>blue</button>
-                    <button onClick={onBlack}>black</button>
-                </div>
-            </div>
+            <Grid container item xs={12} sm={12} md={12} lg={12}>
+                <Box>
+                    <img src={image} />
+                    <Button onClick={increment} variant='outlined'>One</Button>
+                    <Button onClick={decrement} variant='outlined'>Two</Button>
+                    <Button onClick={secrement} variant='outlined'>Three</Button>
+                    <Button onClick={next} variant='outlined'>next</Button>
+                    <Button onClick={previous} variant='outlined'>previous</Button>
+                </Box>
+            </Grid>
             </>
         );
     }
 }
  
-export default Counter;
+export default Slider;
