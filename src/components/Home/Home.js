@@ -1,6 +1,7 @@
 import Banner from "../BannerHomePage/Banner";
 import BannerTime from "../BannerHomePage/BannerTime";
 import Header from "../Header/Header";
+import SliderOne from "../HomeSliders/SliderOne";
 import Search from '../SearchBar/Search';
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
         <Search />
         <Banner />
         <BannerTime />
+        <SliderOne />
         </>
      );
 }
