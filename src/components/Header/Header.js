@@ -8,6 +8,7 @@ const Header = () => {
   const [styles, setStyles] = useState(false);
 
   useEffect(() => {
+    window.innerWidth <= 600 ? setStyles(true) : setStyles(false)
     window.addEventListener("resize", (e) => {
       e.target.innerWidth <= 600 ? setStyles(true) : setStyles(false);
     });
