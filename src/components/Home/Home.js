@@ -3,6 +3,7 @@ import BannerTime from "../BannerHomePage/BannerTime";
 import Header from "../Header/Header";
 import SliderOne from "../HomeSliders/SliderOne";
 import Search from '../SearchBar/Search';
+import BestProductOne from '../BestProducts/BestProductOne';
 
 const Home = () => {
     return ( 
@@ -12,6 +13,7 @@ const Home = () => {
         <Banner />
         <BannerTime />
         <SliderOne />
+        <BestProductOne />
         </>
      );
 }

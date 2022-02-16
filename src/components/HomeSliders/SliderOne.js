@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Swiper, SwiperSlide} from "swiper/react";
+import SwiperCore, { Pagination, Autoplay} from "swiper";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import styled from "styled-components";
-import { Grid } from "@mui/material";
-
+import { Grid,Rating} from "@mui/material";
+SwiperCore.use([Autoplay])
 function SliderOne() {
   const [products, setProducts] = useState([]);
+  const [value, setValue] = useState(4);
   useEffect(async () => {
     const response = await axios
       .get("https://fakestoreapi.com/products/category/electronics")
@@ -44,8 +45,12 @@ function SliderOne() {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        modules={[Pagination , Autoplay]}
         className="mySwiper"
+        autoplay= {{
+          delay: 2500,
+          disableOnInteraction: false
+        }}
       >
         {products.map((slide, index) => (
           <SwiperSlide
@@ -67,8 +72,8 @@ function SliderOne() {
                 alignItems={"center"}
                 justifyContent={"space-between"}
               >
-                <Count>محصول جدید</Count>
-                <Rate>{slide.rating.rate.toString().toPersian()}</Rate>
+                <Count><Rating name="read-only" value={value} readOnly /></Count>
+                <Rate>{slide.rating.rate.toString().toPersian()} <RateText>امتیاز زودباش</RateText></Rate>
               </Information>
             </SlideImage>
           </SwiperSlide>
@@ -81,8 +86,11 @@ function SliderOne() {
 export default SliderOne;
 
 const Images = styled.img`
-  width: 100%;
+  width: 75%;
   height: 90%;
+  @media screen and (max-width : 500px){
+    width : 100%;
+  }
 `;
 
 const SlideImage = styled(Grid)`
@@ -105,3 +113,6 @@ const Count = styled.span`
   font-size: 0.8em;
   color: #cd1c1c;
 `;
+const RateText = styled.span`
+font-size: .6em;
+`

@@ -34,7 +34,7 @@ export default Banner;
 const Container = styled(Grid)`
   background: #eee;
   margin-top: 150px;
-  box-shadow: 0 0 13px #555;
+  box-shadow: 0 0 13px #ccc;
 `;
 
 const TextBox = styled(Grid)`
