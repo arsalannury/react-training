@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import SliderOne from "../HomeSliders/SliderOne";
 import Search from '../SearchBar/Search';
 import BestProductOne from '../BestProducts/BestProductOne';
+import SliderTwo from "../HomeSliders/SliderTwo";
 
 const Home = () => {
     return ( 
@@ -14,6 +15,7 @@ const Home = () => {
         <BannerTime />
         <SliderOne />
         <BestProductOne />
+        <SliderTwo />
         </>
      );
 }

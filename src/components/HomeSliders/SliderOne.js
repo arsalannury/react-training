@@ -6,22 +6,31 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import styled from "styled-components";
 import { Grid,Rating} from "@mui/material";
+import SliderOneLoading from '../Loading/SliderOneLoading';
+
 SwiperCore.use([Autoplay])
 function SliderOne() {
   const [products, setProducts] = useState([]);
   const [value, setValue] = useState(4);
+  const [loading,isLoading] = useState(true)
   useEffect(async () => {
-    const response = await axios
+    setTimeout(async() => {
+      const response = await axios
       .get("https://fakestoreapi.com/products/category/electronics")
       .then((result) => {
         setProducts(result.data);
+        isLoading(false)
         console.log(products);
       });
+    },5000)
   }, []);
 
   return (
     <>
-      <SwiperMain
+      {loading ? (
+        <SliderOneLoading />
+      ) : (
+        <SwiperMain
         breakpoints={{
           640: {
             width: 640,
@@ -79,6 +88,7 @@ function SliderOne() {
           </SwiperSlide>
         ))}
       </SwiperMain>
+      )}
     </>
   );
 }

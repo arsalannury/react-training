@@ -82,7 +82,6 @@ const GridMain = styled(Grid)`
   padding: 50px;
   margin-top: 50px;
   background: #eee;
-  box-shadow: 0 0 13px #ccc;
   @media screen and (max-width: 600px) {
     padding: 20px;
   }
