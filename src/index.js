@@ -1,25 +1,22 @@
-import  ReactDOM  from "react-dom";
-import Slider from './components/Counter';
-import deals from './reducers';
-import {moves} from './reducers';
+import ReactDom from 'react-dom';
+import './Index.css';
+import Redux from './components/Redux';
 import {createStore} from 'redux';
+import reducer from './reducers/index';
 
-const store = createStore(deals);
-const moveStore = createStore(moves)
-const render = () => {
-    ReactDOM.render(
-        <Slider 
-        image={moveStore.getState()}
-        increment={()=> {store.dispatch({type : 'INCREMENT'})}}
-        decrement={()=> {store.dispatch({type : 'DECREMENT'})}}
-        secrement={()=> {store.dispatch({type : 'SECREMENT'})}}
-        next={()=> {moveStore.dispatch({type : 'ONE'})}}
-        />,
-        document.getElementById('Project')
-    )
-};
+const store = createStore(reducer)
 
-render()
+store.dispatch({type : 'INCREMENT'})
+store.dispatch({type : 'DECREMENT', value : 100})
 
-store.subscribe(render)
-moveStore.subscribe(render)
+store.subscribe(
+    console.log(store.getState())
+)
+
+ReactDom.render(
+    <Redux />,
+    document.getElementById('Project')
+);
+
+// console.log(store.getState())
+
