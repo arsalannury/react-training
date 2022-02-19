@@ -1,13 +1,13 @@
 import { Component } from 'react';
 
-class Home extends Component {
+class Register extends Component {
     render() { 
         return (
             <>
-            <h1 style={{textAlign: 'center'}}>Home</h1>
+            
             </>
         );
     }
 }
  
-export default Home;
+export default Register;
