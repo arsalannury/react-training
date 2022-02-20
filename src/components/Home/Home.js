@@ -5,6 +5,7 @@ import SliderOne from "../HomeSliders/SliderOne";
 import Search from '../SearchBar/Search';
 import BestProductOne from '../BestProducts/BestProductOne';
 import SliderTwo from "../HomeSliders/SliderTwo";
+import CommentsAds from '../Ads/CommentsAds/CommentsAds';
 
 const Home = () => {
     return ( 
@@ -16,6 +17,7 @@ const Home = () => {
         <SliderOne />
         <BestProductOne />
         <SliderTwo />
+        <CommentsAds />
         </>
      );
 }

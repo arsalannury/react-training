@@ -14,7 +14,6 @@ function SliderOne() {
   const [value, setValue] = useState(4);
   const [loading,isLoading] = useState(true)
   useEffect(async () => {
-    setTimeout(async() => {
       const response = await axios
       .get("https://fakestoreapi.com/products/category/electronics")
       .then((result) => {
@@ -22,7 +21,6 @@ function SliderOne() {
         isLoading(false)
         console.log(products);
       });
-    },5000)
   }, []);
 
   return (
