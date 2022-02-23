@@ -1,16 +1,24 @@
 // const initialState
 
-const reducerMain = (state = 'what do you want?',{type}) => {
- switch(type){
-     case 'ENGLISH' :
-         return state = 'Hello';
-         break;
-    case 'ARABIC' :
-        return state = 'اهلا و سهلا';
-        break;
-    case 'IRANIAN' :
-        return state = 'درود'
-        default : return state;
- }
-}
+const reducerMain = (state = "#fff", { type }) => {
+  switch (type) {
+    case "YELLOW":
+      return (state = "#ffbe0b");
+      break;
+    case "ORANGE":
+      return (state = "#fb5607");
+      break;
+    case "RED":
+      return (state = "#ff006e");
+      break;
+    case "PURPULE":
+      return (state = "#8338ec");
+      break;
+    case "BLUE":
+      return (state = "#3a86ff");
+      break;
+    default:
+      return state;
+  }
+};
 export default reducerMain;
