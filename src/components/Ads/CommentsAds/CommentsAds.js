@@ -77,6 +77,7 @@ const CommentsAds = () => {
             md={6}
             lg={6}
             justifyContent={"center"}
+            flexDirection={"column"}
           >
             {comments.map((cmt, index) => (
               <Slides top>
@@ -150,16 +151,12 @@ const SingleComment = styled(Grid)`
   direction: ltr;
   box-shadow: 0 0 15px #ccc;
   border-radius: 5px;
-  margin: 20px 15px 0 15px;
+  margin-top: 20px;
   padding: 10px;
+  width: 90%;
+  background: #fff;
 `;
-const Slides = styled(Slide)`
-direction: ltr;
-box-shadow: 0 0 15px #ccc;
-border-radius: 5px;
-margin: 20px 15px 0 15px;
-padding: 10px;
-`
+
 const TextComment = styled.p`
   color: #333;
 `;
@@ -170,5 +167,13 @@ const Name = styled.p`
 const Email = styled(Name)``;
 const ButtonMore = styled(Button)`
   margin: 30px 0 30px 0;
+  width: 90%;
+  align-self: center;
 `;
 const ButtonLess = styled(ButtonMore)``;
+
+const Slides = styled(Slide)`
+display: flex;
+align-items: center;
+justify-content: center;
+`
