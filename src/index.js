@@ -1,14 +1,13 @@
-import ReactDOM from "react-dom";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import App from "./App";
-import reducerMain from "./components/reducers/reducerMain";
+import ReactDOM from 'react-dom';
+import App from './App';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-const store = createStore(reducerMain);
+const store = createStore()
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("Project")
-);
+  document.getElementById('Project')
+)
