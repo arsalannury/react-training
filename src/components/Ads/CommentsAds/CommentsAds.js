@@ -18,7 +18,6 @@ const CommentsAds = () => {
         "https://api.freerealapi.com/comments/618a862db883dbaafa9449c5"
       );
       try {
-        console.log([response.data.comment]);
         getComments([response.data.comment]);
         setLoading(false);
       } catch (error) {

@@ -6,7 +6,7 @@ import Search from '../SearchBar/Search';
 import BestProductOne from '../BestProducts/BestProductOne';
 import SliderTwo from "../HomeSliders/SliderTwo";
 import CommentsAds from '../Ads/CommentsAds/CommentsAds';
-
+import MenClothingCard from "../ProductsHomePage/MenClothing/MenClothingCard";
 const Home = () => {
     return ( 
         <>
@@ -18,6 +18,7 @@ const Home = () => {
         <BestProductOne />
         <SliderTwo />
         <CommentsAds />
+        <MenClothingCard />
         </>
      );
 }
