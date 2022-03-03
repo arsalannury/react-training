@@ -1,15 +1,14 @@
 import { Component } from 'react';
-import Point from './components/point/Point';
+import Main from './components/Main/Main'
 
-
-class Aapp extends Component {
+class App extends Component {
     render() { 
         return (
             <>
-            <Point />
+            <Main />
             </>
         );
     }
 }
  
-export default Aapp;
+export default App;
