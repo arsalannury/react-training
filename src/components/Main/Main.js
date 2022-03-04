@@ -1,25 +1,37 @@
 import { connect } from "react-redux";
 import styled from "styled-components";
-import Backdrop from "@mui/material/Backdrop";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import ArrowBackIosOutlinedIcon from "@mui/icons-material/ArrowBackIosOutlined";
 import { useState } from "react";
-import {Toaster,toast} from 'react-hot-toast';
+import { Toaster, toast } from "react-hot-toast";
+import { MenuItem, Backdrop, TextField } from "@mui/material";
 
 const Main = (props) => {
   const [open, setOpen] = useState(false);
-
+  
   const handleClose = (e) => {
     if (e.target.tagName === "P") return;
     setOpen(false);
   };
+
   const handleToggle = () => {
     if (props.content === "") {
-      toast.error('There is no proverb for translate')
+      toast.error("There is no proverb for translate");
       return;
     }
     setOpen(!open);
   };
+
+  const changeLanguage = () => {
+    if (props.translate === 1) {
+      return <Translate>{props.persian}</Translate>;
+    } else if (props.translate === 2) {
+      return <Translate>{props.french}</Translate>;
+    } else if (props.translate === 3) {
+      return <Translate>{props.arabic}</Translate>;
+    }
+  };
+
   return (
     <>
       <Contaienr>
@@ -32,19 +44,35 @@ const Main = (props) => {
             <ArrowForwardIosOutlinedIcon />
           </PrevBtn>
           <Button onClick={handleToggle}>Translate</Button>
+
           <NextBtn onClick={props.nextState} disabled={props.disabledNext}>
             <ArrowBackIosOutlinedIcon />
           </NextBtn>
         </ButtonGroup>
+        <TextField
+          select
+          variant="filled"
+          label="translate"
+          value={props.selectLanguage}
+          sx={{ width: "200px", background: "#fff", marginTop: "40px" }}
+        >
+          <MenuItem onClick={props.persianTranslate} value={"persian"}>
+            Persian
+          </MenuItem>
+          <MenuItem onClick={props.arabicTranslate} value={"arabic"}>
+            Arabic
+          </MenuItem>
+          <MenuItem onClick={props.frenchTranslate} value={"french"}>
+            French
+          </MenuItem>
+        </TextField>
       </Contaienr>
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
         onClick={handleClose}
       >
-        <Div>
-          <Translate>{props.translate}</Translate>
-        </Div>
+        <Div>{changeLanguage()}</Div>
       </Backdrop>
       <Toaster />
     </>
@@ -59,17 +87,44 @@ const currentStates = (state) => {
     from: state.from,
     disabledNext: state.disabledNext,
     disabledPrev: state.disabledPrev,
+    persian: state.persian,
+    french: state.french,
+    arabic: state.arabic,
     translate: state.translate,
+    selectLanguage: state.selectLanguage,
   };
 };
 const dispatchState = (dispatch) => {
   return {
     nextState: () => dispatch({ type: (ACTION += 1) }),
     prevState: () => dispatch({ type: (ACTION -= 1) }),
+    persianTranslate: () => dispatch({ type: "PERSIAN" }),
+    frenchTranslate: () => dispatch({ type: "FRENCH" }),
+    arabicTranslate: () => dispatch({ type: "ARABIC" }),
   };
 };
 
 export default connect(currentStates, dispatchState)(Main);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const Contaienr = styled.div`
   background-color: #212529;
