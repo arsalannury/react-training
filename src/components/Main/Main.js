@@ -8,7 +8,7 @@ import { MenuItem, Backdrop, TextField } from "@mui/material";
 
 const Main = (props) => {
   const [open, setOpen] = useState(false);
-  
+
   const handleClose = (e) => {
     if (e.target.tagName === "P") return;
     setOpen(false);
@@ -36,6 +36,7 @@ const Main = (props) => {
     <>
       <Contaienr>
         <Content>
+          <NumberProverb>{props.numberProverb}</NumberProverb>
           <P>{props.content}</P>
           <From>{props.from}</From>
         </Content>
@@ -92,6 +93,7 @@ const currentStates = (state) => {
     arabic: state.arabic,
     translate: state.translate,
     selectLanguage: state.selectLanguage,
+    numberProverb: state.numberProverb,
   };
 };
 const dispatchState = (dispatch) => {
@@ -105,26 +107,6 @@ const dispatchState = (dispatch) => {
 };
 
 export default connect(currentStates, dispatchState)(Main);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const Contaienr = styled.div`
   background-color: #212529;
@@ -205,4 +187,11 @@ const Translate = styled.p`
   color: #3c096c;
   text-align: center;
   padding: 5px;
+`;
+const NumberProverb = styled.p`
+  ont-size: 1.3em;
+  color: #444;
+  padding: 0 30px;
+  border-bottom: 1px solid #fff;
+  font-weight: bold;
 `;

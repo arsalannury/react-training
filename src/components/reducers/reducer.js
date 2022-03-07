@@ -8,6 +8,7 @@ const initialState = {
   french: "",
   translate: 1,
   selectLanguage: "persian",
+  numberProverb: null
 };
 const reducer = (state = initialState, { type }) => {
   switch (type) {
@@ -21,6 +22,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "لحقيقة هي أكثر قيمة إذا كان يأخذك بضع سنوات للعثور عليه",
         from: " French proverb",
         translate: 1,
+        numberProverb: 1,
         selectLanguage: "persian",
         disabledPrev: true,
       };
@@ -35,6 +37,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "ليس هناك عار في عدم معرفة; العار يكمن في عدم معرفة",
         from: "Russian proverb",
         translate: 1,
+        numberProverb: 2,
         selectLanguage: "persian",
         disabledPrev: false,
       };
@@ -47,6 +50,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "القهوة والحب طعم أفضل عندما الساخنة",
         from: "Ethiopian proverb",
         translate: 1,
+        numberProverb: 3,
         selectLanguage: "persian",
         disabledPrev: false,
       };
@@ -59,6 +63,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "قلمه اقوى من السيف",
         from: "English proverb",
         translate: 1,
+        numberProverb: 4,
         selectLanguage: "persian",
         disabledPrev: false,
       };
@@ -71,6 +76,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "اسقط سبع مرات وقف في الثامنة",
         from: "Japanese proverb",
         translate: 1,
+        numberProverb: 5,
         selectLanguage: "persian",
         disabledPrev: false,
       };
@@ -83,6 +89,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "إذا كنت لا تستطيع العيش لفترة أطول ، فعيش بشكل أعمق",
         from: "Italian proverb",
         translate: 1,
+        numberProverb: 6,
         selectLanguage: "persian",
         disabledPrev: false,
       };
@@ -95,6 +102,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "يتطلب الأمر قرية كاملة لتربية طفل",
         from: "African proverb",
         translate: 1,
+        numberProverb: 7,
         selectLanguage: "persian",
         disabledPrev: false,
       };
@@ -110,6 +118,7 @@ const reducer = (state = initialState, { type }) => {
         arabic: "أدر وجهك نحو الشمس فتسقط الظلال خلفك",
         from: "Maori proverb",
         translate: 1,
+        numberProverb: 8,
         selectLanguage: "persian",
         disabledNext: true,
         disabledPrev: false,
