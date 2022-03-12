@@ -128,6 +128,7 @@ export default CommentsAds;
 const Container = styled(Grid)`
   height: 400px;
   margin: 10px 0 0 0;
+  padding: 0 10px;
 `;
 const Comments = styled(Grid)``;
 
@@ -152,7 +153,6 @@ const SingleComment = styled(Grid)`
   border-radius: 5px;
   margin-top: 20px;
   padding: 10px;
-  width: 90%;
   background: #fff;
 `;
 
@@ -172,7 +172,7 @@ const ButtonMore = styled(Button)`
 const ButtonLess = styled(ButtonMore)``;
 
 const Slides = styled(Slide)`
-display: flex;
-align-items: center;
-justify-content: center;
+display: flex !important;
+align-items: center !important;
+justify-content: center !important;
 `
