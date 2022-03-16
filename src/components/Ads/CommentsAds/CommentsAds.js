@@ -66,6 +66,9 @@ const CommentsAds = () => {
             <P>
               به جامعه ی بزرگ <Span>زود باش</Span> متصل شوید
             </P>
+            <Wrapper container item xs={0} sm={0} md={0} lg={6} alignItems={'center'} justifyContent={'center'}>
+              <ImageInformation src="costumer.png" alt="costumer" />
+            </Wrapper>
           </Information>
 
           <Comments
@@ -176,3 +179,11 @@ display: flex !important;
 align-items: center !important;
 justify-content: center !important;
 `
+const ImageInformation = styled.img`
+width: 200px;
+margin-top: 20px;
+@media screen and (max-width : 900px) {
+  display : none;
+}
+`;
+const Wrapper = styled(Grid)``

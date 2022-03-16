@@ -17,7 +17,6 @@ function MenClothingCard() {
         "https://fakestoreapi.com/products/category/men's clothing"
       );
       try {
-        console.log(response.data);
         getClothing(response.data);
       } catch (error) {}
     };
@@ -101,7 +100,7 @@ function MenClothingCard() {
 export default MenClothingCard;
 
 const Container = styled(Grid)`
-  margin: 100px 0 30px 0;
+  margin: 250px 0 30px 0;
   background: #cd1c1c;
   padding: 15px 10px;
 `;

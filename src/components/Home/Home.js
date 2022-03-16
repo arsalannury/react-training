@@ -7,6 +7,8 @@ import BestProductOne from '../BestProducts/BestProductOne';
 import SliderTwo from "../HomeSliders/SliderTwo";
 import CommentsAds from '../Ads/CommentsAds/CommentsAds';
 import MenClothingCard from "../ProductsHomePage/MenClothing/MenClothingCard";
+import WomenClothing from "../ProductsHomePage/WomenClothing/WomenClothing";
+
 const Home = () => {
     return ( 
         <>
@@ -19,6 +21,7 @@ const Home = () => {
         <SliderTwo />
         <CommentsAds />
         <MenClothingCard />
+        <WomenClothing />
         </>
      );
 }
